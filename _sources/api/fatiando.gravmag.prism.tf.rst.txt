@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.prism`.tf
+=============================================
+
+.. currentmodule:: fatiando.gravmag.prism
+
+.. autofunction:: tf

@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.scatter
+============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: scatter

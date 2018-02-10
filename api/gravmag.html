@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gravity and magnetics (fatiando.gravmag) &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../index.html">
+            
+                <img src="../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../install.html">Install</a></li>
+                    <li><a href="../gallery/index.html">Gallery</a></li>
+                    <li><a href="../api.html">API</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="../develop.html">Contribute</a></li>
+                    <li><a href="../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Gravity and magnetics (<code class="docutils literal"><span class="pre">fatiando.gravmag</span></code>)</a><ul>
+<li><a class="reference internal" href="#inversion">Inversion</a></li>
+<li><a class="reference internal" href="#processing">Processing</a></li>
+<li><a class="reference internal" href="#interactivity">Interactivity</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+                <div class="col-md-9 content">
+                    <div class="section" id="module-fatiando.gravmag">
+<span id="gravity-and-magnetics-fatiando-gravmag"></span><span id="fatiando-gravmag"></span><h1>Gravity and magnetics (<code class="docutils literal"><span class="pre">fatiando.gravmag</span></code>)<a class="headerlink" href="#module-fatiando.gravmag" title="Permalink to this headline">¶</a></h1>
+<p>Gravity and magnetics forward modeling, inversion, transformations and
+utilities.</p>
+<div class="section" id="inversion">
+<h2>Inversion<a class="headerlink" href="#inversion" title="Permalink to this headline">¶</a></h2>
+<p>The inversion modules use the forward modeling models and the
+<a class="reference internal" href="inversion.html#module-fatiando.inversion" title="fatiando.inversion"><code class="xref py py-mod docutils literal"><span class="pre">fatiando.inversion</span></code></a> package to solve potential field inverse problems:</p>
+<ul class="simple">
+<li><a class="reference internal" href="gravmag.basin2d.html#module-fatiando.gravmag.basin2d" title="fatiando.gravmag.basin2d"><code class="xref py py-mod docutils literal"><span class="pre">basin2d</span></code></a>: 2D inversion of the shape of sedimentary
+basins and other outcropping bodies</li>
+<li><a class="reference internal" href="gravmag.harvester.html#module-fatiando.gravmag.harvester" title="fatiando.gravmag.harvester"><code class="xref py py-mod docutils literal"><span class="pre">harvester</span></code></a>: 3D inversion of compact bodies by
+planting anomalous densities</li>
+<li><a class="reference internal" href="gravmag.euler.html#module-fatiando.gravmag.euler" title="fatiando.gravmag.euler"><code class="xref py py-mod docutils literal"><span class="pre">euler</span></code></a>: 3D Euler deconvolution methods to estimate
+source location</li>
+<li><a class="reference internal" href="gravmag.magdir.html#module-fatiando.gravmag.magdir" title="fatiando.gravmag.magdir"><code class="xref py py-mod docutils literal"><span class="pre">magdir</span></code></a>: Inversion methods to estimate the total
+magnetization vector of multiple sources.</li>
+</ul>
+</div>
+<div class="section" id="processing">
+<h2>Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h2>
+<p>The processing modules offer tools to prepare potential field data before or
+after modeling.</p>
+<ul class="simple">
+<li><a class="reference internal" href="gravmag.normal_gravity.html#module-fatiando.gravmag.normal_gravity" title="fatiando.gravmag.normal_gravity"><code class="xref py py-mod docutils literal"><span class="pre">normal_gravity</span></code></a>: Compute normal gravity and
+reductions.</li>
+<li><a class="reference internal" href="gravmag.eqlayer.html#module-fatiando.gravmag.eqlayer" title="fatiando.gravmag.eqlayer"><code class="xref py py-mod docutils literal"><span class="pre">eqlayer</span></code></a>: Equivalent layer processing</li>
+<li><a class="reference internal" href="gravmag.transform.html#module-fatiando.gravmag.transform" title="fatiando.gravmag.transform"><code class="xref py py-mod docutils literal"><span class="pre">transform</span></code></a>: Potential field transformations,
+like upward continuation, derivatives, etc</li>
+<li><a class="reference internal" href="gravmag.imaging.html#module-fatiando.gravmag.imaging" title="fatiando.gravmag.imaging"><code class="xref py py-mod docutils literal"><span class="pre">imaging</span></code></a>: Imaging methods for potential fields for
+estimating physical property distributions</li>
+<li><a class="reference internal" href="gravmag.tensor.html#module-fatiando.gravmag.tensor" title="fatiando.gravmag.tensor"><code class="xref py py-mod docutils literal"><span class="pre">tensor</span></code></a>: Utilities for operating on the gradient
+tensor</li>
+</ul>
+</div>
+<div class="section" id="interactivity">
+<h2>Interactivity<a class="headerlink" href="#interactivity" title="Permalink to this headline">¶</a></h2>
+<p>Module <a class="reference internal" href="gravmag.interactive.html#module-fatiando.gravmag.interactive" title="fatiando.gravmag.interactive"><code class="xref py py-mod docutils literal"><span class="pre">interactive</span></code></a> implements matplotlib GUIs and
+IPython HTML widgets for interacting with the modeling and processing
+functions.</p>
+</div>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="../_sources/api/gravmag.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

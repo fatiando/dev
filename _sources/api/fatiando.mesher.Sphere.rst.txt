@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.Sphere
+====================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: Sphere
+    :members:
+    :inherited-members:

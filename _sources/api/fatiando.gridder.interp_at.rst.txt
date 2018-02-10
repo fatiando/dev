@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.interp_at
+==============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: interp_at

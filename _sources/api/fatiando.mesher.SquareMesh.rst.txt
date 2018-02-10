@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.SquareMesh
+========================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: SquareMesh
+    :members:
+    :inherited-members:

@@ -1,0 +1,6 @@
+:mod:`fatiando.datasets`.check_hash
+================================================
+
+.. currentmodule:: fatiando.datasets
+
+.. autofunction:: check_hash

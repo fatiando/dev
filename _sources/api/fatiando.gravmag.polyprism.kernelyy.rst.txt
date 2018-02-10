@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.polyprism`.kernelyy
+=======================================================
+
+.. currentmodule:: fatiando.gravmag.polyprism
+
+.. autofunction:: kernelyy

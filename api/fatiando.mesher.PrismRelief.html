@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fatiando.mesher.PrismRelief &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatiando.mesher.PointGrid" href="fatiando.mesher.PointGrid.html" />
+    <link rel="prev" title="fatiando.mesher.TesseroidMesh" href="fatiando.mesher.TesseroidMesh.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../index.html">
+            
+                <img src="../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../install.html">Install</a></li>
+                    <li><a href="../gallery/index.html">Gallery</a></li>
+                    <li><a href="../api.html">API</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="../develop.html">Contribute</a></li>
+                    <li><a href="../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">fatiando.mesher</span></code>.PrismRelief</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="col-md-9 content">
+                    <div class="section" id="fatiando-mesher-prismrelief">
+<h1><a class="reference internal" href="../api.html#module-fatiando.mesher" title="fatiando.mesher"><code class="xref py py-mod docutils literal"><span class="pre">fatiando.mesher</span></code></a>.PrismRelief<a class="headerlink" href="#fatiando-mesher-prismrelief" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatiando.mesher.PrismRelief">
+<em class="property">class </em><code class="descclassname">fatiando.mesher.</code><code class="descname">PrismRelief</code><span class="sig-paren">(</span><em>ref</em>, <em>dims</em>, <em>nodes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fatiando/mesher/mesh.html#PrismRelief"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatiando.mesher.PrismRelief" title="Permalink to this definition">¶</a></dt>
+<dd><p>A 3D model of a relief (topography) using prisms.</p>
+<p>Use to generate:
+* topographic model
+* basin model
+* Moho model
+* etc</p>
+<p>PrismRelief can used as list of prisms. It acts as an iteratior (so you
+can loop over prisms). It also has a <code class="docutils literal"><span class="pre">__getitem__</span></code> method to access
+individual elements in the mesh.
+In practice, PrismRelief should be able to be passed to any function that
+asks for a list of prisms, like <a class="reference internal" href="fatiando.gravmag.prism.gz.html#fatiando.gravmag.prism.gz" title="fatiando.gravmag.prism.gz"><code class="xref py py-func docutils literal"><span class="pre">fatiando.gravmag.prism.gz</span></code></a>.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>ref <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><dl class="first last docutils">
+<dt>Reference level. Prisms will have:</dt>
+<dd><ul class="first last">
+<li>bottom on zref and top on z if z &gt; zref;</li>
+<li>bottom on z and top on zref otherwise.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>dims <span class="classifier-delimiter">:</span> <span class="classifier">tuple = (dy, dx)</span></dt>
+<dd>Dimensions of the prisms in the y and x directions</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>nodes <span class="classifier-delimiter">:</span> <span class="classifier">list of lists = [x, y, z]</span></dt>
+<dd>Coordinates of the center of the top face of each prism.x, y, and z are
+lists with the x, y and z coordinates on a regular grid.</dd>
+</dl>
+</li>
+</ul>
+<dl class="method">
+<dt id="fatiando.mesher.PrismRelief.addprop">
+<code class="descname">addprop</code><span class="sig-paren">(</span><em>prop</em>, <em>values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fatiando/mesher/mesh.html#PrismRelief.addprop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatiando.mesher.PrismRelief.addprop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add physical property values to the prisms.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the z value of any point in the relief is below the
+reference level, its corresponding prism will have the physical
+property value with oposite sign than was assigned to it.</p>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>prop <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Name of the physical property.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>values <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd>List or array with the value of this physical property in each
+prism of the relief.</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatiando.mesher.PrismRelief.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fatiando/mesher/mesh.html#PrismRelief.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatiando.mesher.PrismRelief.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a deep copy of the current instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="../_sources/api/fatiando.mesher.PrismRelief.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

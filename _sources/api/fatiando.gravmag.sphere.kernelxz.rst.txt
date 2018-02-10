@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.sphere`.kernelxz
+====================================================
+
+.. currentmodule:: fatiando.gravmag.sphere
+
+.. autofunction:: kernelxz

@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.safe_solve
+=============================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: safe_solve

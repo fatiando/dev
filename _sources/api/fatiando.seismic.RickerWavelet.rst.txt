@@ -1,0 +1,8 @@
+:mod:`fatiando.seismic`.RickerWavelet
+============================================
+
+.. currentmodule:: fatiando.seismic
+
+.. autoclass:: RickerWavelet
+    :members:
+    :inherited-members:

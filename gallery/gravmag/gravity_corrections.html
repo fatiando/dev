@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gravity corrections (normal gravity and Bouguer) &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Forward modeling magnetic data using spheres in Cartesian coordinates" href="forward_modeling_sphere_mag.html" />
+    <link rel="prev" title="Forward modeling gravity data using spheres in Cartesian coordinates" href="forward_modeling_sphere_gravity.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../../index.html">
+            
+                <img src="../../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../../install.html">Install</a></li>
+                    <li><a href="../index.html">Gallery</a></li>
+                    <li><a href="../../api.html">API</a></li>
+                    <li><a href="../../docs.html">Docs</a></li>
+                    <li><a href="../../develop.html">Contribute</a></li>
+                    <li><a href="../../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+                <div class="col-md-12 content">
+                    <div class="section" id="gravity-corrections-normal-gravity-and-bouguer">
+<span id="sphx-glr-gallery-gravmag-gravity-corrections-py"></span><h1>Gravity corrections (normal gravity and Bouguer)<a class="headerlink" href="#gravity-corrections-normal-gravity-and-bouguer" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="../../api/gravmag.html#module-fatiando.gravmag" title="fatiando.gravmag"><code class="xref py py-mod docutils literal"><span class="pre">fatiando.gravmag</span></code></a> package has function for performing gravity
+corrections to obtain the gravity disturbance (measured gravity minus normal
+gravity). Particularly, there are functions for calculating normal gravity at
+any height using a closed-form formula instead of using the free-air
+approximation.</p>
+<p>This example calculates the gravity disturbance and the topography-free
+disturbance (what is usually called the “Bouguer anomaly” in geophysics) using
+raw gravity data from Hawaii.</p>
+<img alt="../../_images/sphx_glr_gravity_corrections_001.png" class="align-center" src="../../_images/sphx_glr_gravity_corrections_001.png" />
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fatiando.datasets</span> <span class="kn">import</span> <span class="n">fetch_hawaii_gravity</span>
+<span class="kn">from</span> <span class="nn">fatiando.gravmag</span> <span class="kn">import</span> <span class="n">normal_gravity</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Load gravity data from Hawaii</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">fetch_hawaii_gravity</span><span class="p">()</span>
+
+<span class="c1"># Use the closed form of the normal gravity to calculate</span>
+<span class="c1"># it at the observation height. This is better than using</span>
+<span class="c1"># the free-air approximation.</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">normal_gravity</span><span class="o">.</span><span class="n">gamma_closed_form</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="n">disturbance</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;gravity&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">gamma</span>
+<span class="c1"># Use a Bouguer plate to remove the effect of topography</span>
+<span class="n">bouguer</span> <span class="o">=</span> <span class="n">disturbance</span> <span class="o">-</span> <span class="n">normal_gravity</span><span class="o">.</span><span class="n">bouguer_plate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">])</span>
+
+<span class="c1"># Plot the data using the UTM coordinates (x is North and y is East)</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Raw gravity of Hawaii&#39;</span><span class="p">)</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Topography&#39;</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">scale</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gravity disturbance&#39;</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">([</span><span class="n">disturbance</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">disturbance</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">disturbance</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">scale</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Topography-free disturbance&#39;</span><span class="p">)</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">bouguer</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.849 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/gravity_corrections.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">gravity_corrections.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/gravity_corrections.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">gravity_corrections.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="../../_sources/gallery/gravmag/gravity_corrections.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

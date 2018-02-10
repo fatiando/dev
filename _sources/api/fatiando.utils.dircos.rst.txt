@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.dircos
+=========================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: dircos

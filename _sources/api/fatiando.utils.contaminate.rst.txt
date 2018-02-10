@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.contaminate
+==============================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: contaminate

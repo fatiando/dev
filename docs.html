@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Documentation (version dev) &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Plotting seismic data with wiggles" href="gallery/vis/seismic-wiggle.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="index.html">
+            
+                <img src="_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="install.html">Install</a></li>
+                    <li><a href="gallery/index.html">Gallery</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="#">Docs</a></li>
+                    <li><a href="develop.html">Contribute</a></li>
+                    <li><a href="cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+                <div class="col-md-12 content">
+                    <div class="section" id="documentation-version-version">
+<span id="docs"></span><h1>Documentation (version dev)<a class="headerlink" href="#documentation-version-version" title="Permalink to this headline">¶</a></h1>
+<div class="row">
+    <div class="col-md-3">
+        <h3><a href="install.html">Installing</a></h3>
+        <em>
+        Instructions to setup Fatiando and its dependencies.
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="api.html">API Reference</a></h3>
+        <em>
+        Documentation for all classes and functions in the
+        <code class="docutils literal">fatiando</code> package.
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="gallery/index.html">Gallery</a></h3>
+        <em>
+        Collection of plots and the code that generates them showcasing
+        what Fatiando can do.
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="develop.html">Developer Guide</a></h3>
+        <em>
+        <strong>Get involved!</strong> See these instructions for
+        contributing to Fatiando.
+        </em>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <h3><a href="cite.html">Citing</a></h3>
+        <em>
+        Fatiando is research software <strong>made by scientists</strong>.
+        See how to cite it in your publications.
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="use_cases.html">Use Cases</a></h3>
+        <em>
+        How Fatiando is being used in the wild: publications, teaching,
+        etc. Add yours to the list!
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="contributors.html">Contributors</a></h3>
+        <em>
+        A list of all who contributed to Fatiando.
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="changelog.html">Changelog</a></h3>
+        <em>
+        List of changes for each release.
+        </em>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <h3><a href="license.html">License</a></h3>
+        <em>
+        Our open-source license (BSD 3-clause).
+        </em>
+    </div>
+    <div class="col-md-3">
+        <h3><a href="cookbook.html">Cookbook</a></h3>
+        <em>
+        Recipes showing how to use our modules and functions.
+        </em>
+    </div>
+</div><div class="section" id="other-versions">
+<h2>Other versions<a class="headerlink" href="#other-versions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.fatiando.org/dev">Development version</a></li>
+<li><a class="reference external" href="http://www.fatiando.org/v0.5">Version 0.5 (stable)</a></li>
+<li><a class="reference external" href="http://www.fatiando.org/v0.4">Version 0.4</a></li>
+<li><a class="reference external" href="http://www.fatiando.org/v0.3">Version 0.3</a></li>
+<li><a class="reference external" href="http://www.fatiando.org/v0.2">Version 0.2</a></li>
+<li><a class="reference external" href="http://www.fatiando.org/v0.1">Version 0.1</a></li>
+</ul>
+</div>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="_sources/docs.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

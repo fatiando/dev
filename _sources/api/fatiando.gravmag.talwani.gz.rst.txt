@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.talwani`.gz
+===============================================
+
+.. currentmodule:: fatiando.gravmag.talwani
+
+.. autofunction:: gz

@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API reference: The fatiando package &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fatiando.gridder.regular" href="api/fatiando.gridder.regular.html" />
+    <link rel="prev" title="Installing Fatiando" href="install.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="index.html">
+            
+                <img src="_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="install.html">Install</a></li>
+                    <li><a href="gallery/index.html">Gallery</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="develop.html">Contribute</a></li>
+                    <li><a href="cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">API reference: The <code class="docutils literal"><span class="pre">fatiando</span></code> package</a><ul>
+<li><a class="reference internal" href="#module-fatiando.gridder"><code class="docutils literal"><span class="pre">fatiando.gridder</span></code>: Grids and irregularly spaced data</a></li>
+<li><a class="reference internal" href="#module-fatiando.mesher"><code class="docutils literal"><span class="pre">fatiando.mesher</span></code>: Geometric objects and meshes</a><ul>
+<li><a class="reference internal" href="#geometric-objects">Geometric objects</a></li>
+<li><a class="reference internal" href="#meshes-and-collections">Meshes and collections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatiando.utils"><code class="docutils literal"><span class="pre">fatiando.utils</span></code>: Utility functions</a></li>
+<li><a class="reference internal" href="#module-fatiando.vis"><code class="docutils literal"><span class="pre">fatiando.vis</span></code>: Visualization</a></li>
+<li><a class="reference internal" href="#module-fatiando.datasets"><code class="docutils literal"><span class="pre">fatiando.datasets</span></code>: Load and fetch standard datasets</a><ul>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatiando.seismic"><code class="docutils literal"><span class="pre">fatiando.seismic</span></code>: Seismology and seismics</a><ul>
+<li><a class="reference internal" href="#forward-modeling-and-inversion">Forward modeling and inversion</a></li>
+<li><a class="reference internal" href="#tomography">Tomography</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#id1">Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatiando.gravmag"><code class="docutils literal"><span class="pre">fatiando.gravmag</span></code>: Gravity and magnetics</a><ul>
+<li><a class="reference internal" href="#inversion">Inversion</a></li>
+<li><a class="reference internal" href="#processing">Processing</a></li>
+<li><a class="reference internal" href="#interactivity">Interactivity</a></li>
+<li><a class="reference internal" href="#forward-modeling">Forward modeling</a><ul>
+<li><a class="reference internal" href="#spheres">Spheres</a></li>
+<li><a class="reference internal" href="#polygonal-prisms">Polygonal prisms</a></li>
+<li><a class="reference internal" href="#right-rectangular-prisms">Right-rectangular prisms</a></li>
+<li><a class="reference internal" href="#polygons-2d">Polygons (2D)</a></li>
+<li><a class="reference internal" href="#tesseroids-spherical-prisms">Tesseroids (spherical prisms)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-fatiando.geothermal"><code class="docutils literal"><span class="pre">fatiando.geothermal</span></code>: Geothermal methods</a><ul>
+<li><a class="reference internal" href="#climate-signal">Climate signal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+                <div class="col-md-9 content">
+                    <div class="section" id="module-fatiando">
+<span id="api-reference-the-fatiando-package"></span><span id="api"></span><h1>API reference: The <code class="docutils literal"><span class="pre">fatiando</span></code> package<a class="headerlink" href="#module-fatiando" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal"><span class="pre">fatiando</span></code> package contains subpackages for different geophysical methods
+and other utilities.</p>
+<p>See the API reference for each subpackage for a list of all functions and
+classes defined by it.</p>
+<div class="section" id="module-fatiando.gridder">
+<span id="fatiando-gridder-grids-and-irregularly-spaced-data"></span><h2><code class="docutils literal"><span class="pre">fatiando.gridder</span></code>: Grids and irregularly spaced data<a class="headerlink" href="#module-fatiando.gridder" title="Permalink to this headline">¶</a></h2>
+<p>Create and operate on data grids, scatters, and profiles.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gridder.regular.html#fatiando.gridder.regular" title="fatiando.gridder.regular"><code class="xref py py-obj docutils literal"><span class="pre">regular</span></code></a>(area,&nbsp;shape[,&nbsp;z])</td>
+<td>Create a regular grid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gridder.scatter.html#fatiando.gridder.scatter" title="fatiando.gridder.scatter"><code class="xref py py-obj docutils literal"><span class="pre">scatter</span></code></a>(area,&nbsp;n[,&nbsp;z,&nbsp;seed])</td>
+<td>Create an irregular grid with a random scattering of points.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gridder.circular_scatter.html#fatiando.gridder.circular_scatter" title="fatiando.gridder.circular_scatter"><code class="xref py py-obj docutils literal"><span class="pre">circular_scatter</span></code></a>(area,&nbsp;n[,&nbsp;z,&nbsp;random,&nbsp;seed])</td>
+<td>Generate a set of n points positioned in a circular array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gridder.cut.html#fatiando.gridder.cut" title="fatiando.gridder.cut"><code class="xref py py-obj docutils literal"><span class="pre">cut</span></code></a>(x,&nbsp;y,&nbsp;scalars,&nbsp;area)</td>
+<td>Return a subsection of a grid.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gridder.inside.html#fatiando.gridder.inside" title="fatiando.gridder.inside"><code class="xref py py-obj docutils literal"><span class="pre">inside</span></code></a>(x,&nbsp;y,&nbsp;area)</td>
+<td>Tell which indices of an array fall inside an area.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gridder.profile.html#fatiando.gridder.profile" title="fatiando.gridder.profile"><code class="xref py py-obj docutils literal"><span class="pre">profile</span></code></a>(x,&nbsp;y,&nbsp;v,&nbsp;point1,&nbsp;point2,&nbsp;size[,&nbsp;…])</td>
+<td>Extract a profile between 2 points from spacial data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gridder.interp.html#fatiando.gridder.interp" title="fatiando.gridder.interp"><code class="xref py py-obj docutils literal"><span class="pre">interp</span></code></a>(x,&nbsp;y,&nbsp;v,&nbsp;shape[,&nbsp;area,&nbsp;algorithm,&nbsp;…])</td>
+<td>Interpolate spacial data onto a regular grid.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gridder.interp_at.html#fatiando.gridder.interp_at" title="fatiando.gridder.interp_at"><code class="xref py py-obj docutils literal"><span class="pre">interp_at</span></code></a>(x,&nbsp;y,&nbsp;v,&nbsp;xp,&nbsp;yp[,&nbsp;algorithm,&nbsp;…])</td>
+<td>Interpolate spacial data onto specified points.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gridder.spacing.html#fatiando.gridder.spacing" title="fatiando.gridder.spacing"><code class="xref py py-obj docutils literal"><span class="pre">spacing</span></code></a>(area,&nbsp;shape)</td>
+<td>Returns the spacing between grid nodes</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gridder.pad_array.html#fatiando.gridder.pad_array" title="fatiando.gridder.pad_array"><code class="xref py py-obj docutils literal"><span class="pre">pad_array</span></code></a>(a[,&nbsp;npd,&nbsp;padtype])</td>
+<td>Return a padded array of arbitrary dimension.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gridder.unpad_array.html#fatiando.gridder.unpad_array" title="fatiando.gridder.unpad_array"><code class="xref py py-obj docutils literal"><span class="pre">unpad_array</span></code></a>(a,&nbsp;nps)</td>
+<td>Remove padding from an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gridder.pad_coords.html#fatiando.gridder.pad_coords" title="fatiando.gridder.pad_coords"><code class="xref py py-obj docutils literal"><span class="pre">pad_coords</span></code></a>(xy,&nbsp;shape,&nbsp;nps)</td>
+<td>Apply padding to coordinate vectors.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatiando.mesher">
+<span id="fatiando-mesher-geometric-objects-and-meshes"></span><h2><code class="docutils literal"><span class="pre">fatiando.mesher</span></code>: Geometric objects and meshes<a class="headerlink" href="#module-fatiando.mesher" title="Permalink to this headline">¶</a></h2>
+<p>Generate and operate on geometric elements and meshes.</p>
+<div class="section" id="geometric-objects">
+<h3>Geometric objects<a class="headerlink" href="#geometric-objects" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.mesher.Polygon.html#fatiando.mesher.Polygon" title="fatiando.mesher.Polygon"><code class="xref py py-obj docutils literal"><span class="pre">Polygon</span></code></a>(vertices[,&nbsp;props])</td>
+<td>A polygon object (2D).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.mesher.Square.html#fatiando.mesher.Square" title="fatiando.mesher.Square"><code class="xref py py-obj docutils literal"><span class="pre">Square</span></code></a>(bounds[,&nbsp;props])</td>
+<td>A square object (2D).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.mesher.Prism.html#fatiando.mesher.Prism" title="fatiando.mesher.Prism"><code class="xref py py-obj docutils literal"><span class="pre">Prism</span></code></a>(x1,&nbsp;x2,&nbsp;y1,&nbsp;y2,&nbsp;z1,&nbsp;z2[,&nbsp;props])</td>
+<td>A 3D right rectangular prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.mesher.PolygonalPrism.html#fatiando.mesher.PolygonalPrism" title="fatiando.mesher.PolygonalPrism"><code class="xref py py-obj docutils literal"><span class="pre">PolygonalPrism</span></code></a>(vertices,&nbsp;z1,&nbsp;z2[,&nbsp;props])</td>
+<td>A 3D prism with polygonal cross-section.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.mesher.Sphere.html#fatiando.mesher.Sphere" title="fatiando.mesher.Sphere"><code class="xref py py-obj docutils literal"><span class="pre">Sphere</span></code></a>(x,&nbsp;y,&nbsp;z,&nbsp;radius[,&nbsp;props])</td>
+<td>A sphere.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.mesher.Tesseroid.html#fatiando.mesher.Tesseroid" title="fatiando.mesher.Tesseroid"><code class="xref py py-obj docutils literal"><span class="pre">Tesseroid</span></code></a>(w,&nbsp;e,&nbsp;s,&nbsp;n,&nbsp;top,&nbsp;bottom[,&nbsp;props])</td>
+<td>A tesseroid (spherical prism).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="meshes-and-collections">
+<h3>Meshes and collections<a class="headerlink" href="#meshes-and-collections" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.mesher.SquareMesh.html#fatiando.mesher.SquareMesh" title="fatiando.mesher.SquareMesh"><code class="xref py py-obj docutils literal"><span class="pre">SquareMesh</span></code></a>(bounds,&nbsp;shape[,&nbsp;props])</td>
+<td>A 2D regular mesh of squares.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.mesher.PrismMesh.html#fatiando.mesher.PrismMesh" title="fatiando.mesher.PrismMesh"><code class="xref py py-obj docutils literal"><span class="pre">PrismMesh</span></code></a>(bounds,&nbsp;shape[,&nbsp;props])</td>
+<td>A 3D regular mesh of right rectangular prisms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.mesher.TesseroidMesh.html#fatiando.mesher.TesseroidMesh" title="fatiando.mesher.TesseroidMesh"><code class="xref py py-obj docutils literal"><span class="pre">TesseroidMesh</span></code></a>(bounds,&nbsp;shape[,&nbsp;props])</td>
+<td>A 3D regular mesh of tesseroids.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.mesher.PrismRelief.html#fatiando.mesher.PrismRelief" title="fatiando.mesher.PrismRelief"><code class="xref py py-obj docutils literal"><span class="pre">PrismRelief</span></code></a>(ref,&nbsp;dims,&nbsp;nodes)</td>
+<td>A 3D model of a relief (topography) using prisms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.mesher.PointGrid.html#fatiando.mesher.PointGrid" title="fatiando.mesher.PointGrid"><code class="xref py py-obj docutils literal"><span class="pre">PointGrid</span></code></a>(area,&nbsp;z,&nbsp;shape[,&nbsp;props])</td>
+<td>A regular grid of 3D point sources (spheres of unit volume).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-fatiando.utils">
+<span id="fatiando-utils-utility-functions"></span><h2><code class="docutils literal"><span class="pre">fatiando.utils</span></code>: Utility functions<a class="headerlink" href="#module-fatiando.utils" title="Permalink to this headline">¶</a></h2>
+<p>Miscellaneous utility functions.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.contaminate.html#fatiando.utils.contaminate" title="fatiando.utils.contaminate"><code class="xref py py-obj docutils literal"><span class="pre">contaminate</span></code></a>(data,&nbsp;stddev[,&nbsp;percent,&nbsp;…])</td>
+<td>Add pseudorandom gaussian noise to an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.gaussian.html#fatiando.utils.gaussian" title="fatiando.utils.gaussian"><code class="xref py py-obj docutils literal"><span class="pre">gaussian</span></code></a>(x,&nbsp;mean,&nbsp;std)</td>
+<td>Non-normalized Gaussian function</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.gaussian2d.html#fatiando.utils.gaussian2d" title="fatiando.utils.gaussian2d"><code class="xref py py-obj docutils literal"><span class="pre">gaussian2d</span></code></a>(x,&nbsp;y,&nbsp;sigma_x,&nbsp;sigma_y[,&nbsp;x0,&nbsp;y0,&nbsp;…])</td>
+<td>Non-normalized 2D Gaussian function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.safe_solve.html#fatiando.utils.safe_solve" title="fatiando.utils.safe_solve"><code class="xref py py-obj docutils literal"><span class="pre">safe_solve</span></code></a>(matrix,&nbsp;vector)</td>
+<td>Solve a linear system using an apropriate algorithm.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.safe_dot.html#fatiando.utils.safe_dot" title="fatiando.utils.safe_dot"><code class="xref py py-obj docutils literal"><span class="pre">safe_dot</span></code></a>(a,&nbsp;b)</td>
+<td>Make the dot product using the appropriate method.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.safe_diagonal.html#fatiando.utils.safe_diagonal" title="fatiando.utils.safe_diagonal"><code class="xref py py-obj docutils literal"><span class="pre">safe_diagonal</span></code></a>(matrix)</td>
+<td>Get the diagonal of a matrix using the appropriate method.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.safe_inverse.html#fatiando.utils.safe_inverse" title="fatiando.utils.safe_inverse"><code class="xref py py-obj docutils literal"><span class="pre">safe_inverse</span></code></a>(matrix)</td>
+<td>Calculate the inverse of a matrix using an apropriate algorithm.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.si2mgal.html#fatiando.utils.si2mgal" title="fatiando.utils.si2mgal"><code class="xref py py-obj docutils literal"><span class="pre">si2mgal</span></code></a>(value)</td>
+<td>Convert a value from SI units to mGal.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.mgal2si.html#fatiando.utils.mgal2si" title="fatiando.utils.mgal2si"><code class="xref py py-obj docutils literal"><span class="pre">mgal2si</span></code></a>(value)</td>
+<td>Convert a value from mGal to SI units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.si2eotvos.html#fatiando.utils.si2eotvos" title="fatiando.utils.si2eotvos"><code class="xref py py-obj docutils literal"><span class="pre">si2eotvos</span></code></a>(value)</td>
+<td>Convert a value from SI units to Eotvos.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.eotvos2si.html#fatiando.utils.eotvos2si" title="fatiando.utils.eotvos2si"><code class="xref py py-obj docutils literal"><span class="pre">eotvos2si</span></code></a>(value)</td>
+<td>Convert a value from Eotvos to SI units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.si2nt.html#fatiando.utils.si2nt" title="fatiando.utils.si2nt"><code class="xref py py-obj docutils literal"><span class="pre">si2nt</span></code></a>(value)</td>
+<td>Convert a value from SI units to nanoTesla.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.nt2si.html#fatiando.utils.nt2si" title="fatiando.utils.nt2si"><code class="xref py py-obj docutils literal"><span class="pre">nt2si</span></code></a>(value)</td>
+<td>Convert a value from nanoTesla to SI units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.sph2cart.html#fatiando.utils.sph2cart" title="fatiando.utils.sph2cart"><code class="xref py py-obj docutils literal"><span class="pre">sph2cart</span></code></a>(lon,&nbsp;lat,&nbsp;height)</td>
+<td>Convert spherical coordinates to Cartesian geocentric coordinates.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.utils.dircos.html#fatiando.utils.dircos" title="fatiando.utils.dircos"><code class="xref py py-obj docutils literal"><span class="pre">dircos</span></code></a>(inc,&nbsp;dec)</td>
+<td>Returns the 3 coordinates of a unit vector given its inclination and declination.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.utils.ang2vec.html#fatiando.utils.ang2vec" title="fatiando.utils.ang2vec"><code class="xref py py-obj docutils literal"><span class="pre">ang2vec</span></code></a>(intensity,&nbsp;inc,&nbsp;dec)</td>
+<td>Convert intensity, inclination and  declination to a 3-component vector</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-fatiando.vis">
+<span id="fatiando-vis-visualization"></span><h2><code class="docutils literal"><span class="pre">fatiando.vis</span></code>: Visualization<a class="headerlink" href="#module-fatiando.vis" title="Permalink to this headline">¶</a></h2>
+<p>Plotting utilities.</p>
+<p>Wrappers to facilitate common plotting tasks using powerful third-party
+libraries.</p>
+<ul class="simple">
+<li><a class="reference internal" href="api/vis.mpl.html#module-fatiando.vis.mpl" title="fatiando.vis.mpl"><code class="xref py py-mod docutils literal"><span class="pre">mpl</span></code></a>: 2D plotting using <a class="reference external" href="http://matplotlib.org/">matplotlib</a></li>
+<li><a class="reference internal" href="api/vis.myv.html#module-fatiando.vis.myv" title="fatiando.vis.myv"><code class="xref py py-mod docutils literal"><span class="pre">myv</span></code></a>: 3D plotting using <a class="reference external" href="http://code.enthought.com/projects/mayavi/">Mayavi</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="module-fatiando.datasets">
+<span id="fatiando-datasets-load-and-fetch-standard-datasets"></span><h2><code class="docutils literal"><span class="pre">fatiando.datasets</span></code>: Load and fetch standard datasets<a class="headerlink" href="#module-fatiando.datasets" title="Permalink to this headline">¶</a></h2>
+<p>Functions to read data from files and fetch datasets from the internet.</p>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.datasets.load_surfer.html#fatiando.datasets.load_surfer" title="fatiando.datasets.load_surfer"><code class="xref py py-obj docutils literal"><span class="pre">load_surfer</span></code></a>(fname[,&nbsp;dtype])</td>
+<td>Read data from a Surfer ASCII grid file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.datasets.check_hash.html#fatiando.datasets.check_hash" title="fatiando.datasets.check_hash"><code class="xref py py-obj docutils literal"><span class="pre">check_hash</span></code></a>(fname,&nbsp;known_hash[,&nbsp;hash_type])</td>
+<td>Assert that the hash of a file is equal to a known hash.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.datasets.fetch_hawaii_gravity.html#fatiando.datasets.fetch_hawaii_gravity" title="fatiando.datasets.fetch_hawaii_gravity"><code class="xref py py-obj docutils literal"><span class="pre">fetch_hawaii_gravity</span></code></a>()</td>
+<td>Load gravity and topography data for Hawaii.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.datasets.from_image.html#fatiando.datasets.from_image" title="fatiando.datasets.from_image"><code class="xref py py-obj docutils literal"><span class="pre">from_image</span></code></a>(fname[,&nbsp;pixel_thresh,&nbsp;return_colors])</td>
+<td>Create a model template from an image file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-fatiando.seismic">
+<span id="fatiando-seismic-seismology-and-seismics"></span><h2><code class="docutils literal"><span class="pre">fatiando.seismic</span></code>: Seismology and seismics<a class="headerlink" href="#module-fatiando.seismic" title="Permalink to this headline">¶</a></h2>
+<p>Tools for seismic and seismology, like convolutional modeling and wave
+propagation.</p>
+<div class="section" id="forward-modeling-and-inversion">
+<h3>Forward modeling and inversion<a class="headerlink" href="#forward-modeling-and-inversion" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="api/seismic.ttime2d.html#module-fatiando.seismic.ttime2d" title="fatiando.seismic.ttime2d"><code class="xref py py-mod docutils literal"><span class="pre">ttime2d</span></code></a>: 2D seismic ray travel-time modeling</li>
+<li><a class="reference internal" href="api/seismic.epic2d.html#module-fatiando.seismic.epic2d" title="fatiando.seismic.epic2d"><code class="xref py py-mod docutils literal"><span class="pre">epic2d</span></code></a>: 2D epicenter determination</li>
+<li><a class="reference internal" href="api/seismic.profile.html#module-fatiando.seismic.profile" title="fatiando.seismic.profile"><code class="xref py py-mod docutils literal"><span class="pre">profile</span></code></a>: Modeling and inversion of seismic profiling</li>
+<li><a class="reference internal" href="api/seismic.wavefd.html#module-fatiando.seismic.wavefd" title="fatiando.seismic.wavefd"><code class="xref py py-mod docutils literal"><span class="pre">wavefd</span></code></a>: Finite difference solution of the 2D elastic
+wave equation</li>
+<li><a class="reference internal" href="api/seismic.conv.html#module-fatiando.seismic.conv" title="fatiando.seismic.conv"><code class="xref py py-mod docutils literal"><span class="pre">conv</span></code></a>: Convolutional seismic modeling</li>
+</ul>
+</div>
+<div class="section" id="tomography">
+<h3>Tomography<a class="headerlink" href="#tomography" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="api/seismic.srtomo.html#module-fatiando.seismic.srtomo" title="fatiando.seismic.srtomo"><code class="xref py py-mod docutils literal"><span class="pre">srtomo</span></code></a>: 2D straight-ray tomography</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.seismic.RickerWavelet.html#fatiando.seismic.RickerWavelet" title="fatiando.seismic.RickerWavelet"><code class="xref py py-obj docutils literal"><span class="pre">RickerWavelet</span></code></a>(f[,&nbsp;amp,&nbsp;delay])</td>
+<td>The Ricker (mexican hat) wavelet.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h3>Functions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.seismic.lame_mu.html#fatiando.seismic.lame_mu" title="fatiando.seismic.lame_mu"><code class="xref py py-obj docutils literal"><span class="pre">lame_mu</span></code></a>(vs,&nbsp;density)</td>
+<td>Calculate Lamé’s second parameter <span class="math">\(\mu\)</span> (the shear modulus).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.seismic.lame_lambda.html#fatiando.seismic.lame_lambda" title="fatiando.seismic.lame_lambda"><code class="xref py py-obj docutils literal"><span class="pre">lame_lambda</span></code></a>(vp,&nbsp;vs,&nbsp;density)</td>
+<td>Calculate Lamé’s first parameter <span class="math">\(\lambda\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-fatiando.gravmag">
+<span id="fatiando-gravmag-gravity-and-magnetics"></span><h2><code class="docutils literal"><span class="pre">fatiando.gravmag</span></code>: Gravity and magnetics<a class="headerlink" href="#module-fatiando.gravmag" title="Permalink to this headline">¶</a></h2>
+<p>Gravity and magnetics forward modeling, inversion, transformations and
+utilities.</p>
+<div class="section" id="inversion">
+<h3>Inversion<a class="headerlink" href="#inversion" title="Permalink to this headline">¶</a></h3>
+<p>The inversion modules use the forward modeling models and the
+<a class="reference internal" href="api/inversion.html#module-fatiando.inversion" title="fatiando.inversion"><code class="xref py py-mod docutils literal"><span class="pre">fatiando.inversion</span></code></a> package to solve potential field inverse problems:</p>
+<ul class="simple">
+<li><a class="reference internal" href="api/gravmag.basin2d.html#module-fatiando.gravmag.basin2d" title="fatiando.gravmag.basin2d"><code class="xref py py-mod docutils literal"><span class="pre">basin2d</span></code></a>: 2D inversion of the shape of sedimentary
+basins and other outcropping bodies</li>
+<li><a class="reference internal" href="api/gravmag.harvester.html#module-fatiando.gravmag.harvester" title="fatiando.gravmag.harvester"><code class="xref py py-mod docutils literal"><span class="pre">harvester</span></code></a>: 3D inversion of compact bodies by
+planting anomalous densities</li>
+<li><a class="reference internal" href="api/gravmag.euler.html#module-fatiando.gravmag.euler" title="fatiando.gravmag.euler"><code class="xref py py-mod docutils literal"><span class="pre">euler</span></code></a>: 3D Euler deconvolution methods to estimate
+source location</li>
+<li><a class="reference internal" href="api/gravmag.magdir.html#module-fatiando.gravmag.magdir" title="fatiando.gravmag.magdir"><code class="xref py py-mod docutils literal"><span class="pre">magdir</span></code></a>: Inversion methods to estimate the total
+magnetization vector of multiple sources.</li>
+</ul>
+</div>
+<div class="section" id="processing">
+<h3>Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h3>
+<p>The processing modules offer tools to prepare potential field data before or
+after modeling.</p>
+<ul class="simple">
+<li><a class="reference internal" href="api/gravmag.normal_gravity.html#module-fatiando.gravmag.normal_gravity" title="fatiando.gravmag.normal_gravity"><code class="xref py py-mod docutils literal"><span class="pre">normal_gravity</span></code></a>: Compute normal gravity and
+reductions.</li>
+<li><a class="reference internal" href="api/gravmag.eqlayer.html#module-fatiando.gravmag.eqlayer" title="fatiando.gravmag.eqlayer"><code class="xref py py-mod docutils literal"><span class="pre">eqlayer</span></code></a>: Equivalent layer processing</li>
+<li><a class="reference internal" href="api/gravmag.transform.html#module-fatiando.gravmag.transform" title="fatiando.gravmag.transform"><code class="xref py py-mod docutils literal"><span class="pre">transform</span></code></a>: Potential field transformations,
+like upward continuation, derivatives, etc</li>
+<li><a class="reference internal" href="api/gravmag.imaging.html#module-fatiando.gravmag.imaging" title="fatiando.gravmag.imaging"><code class="xref py py-mod docutils literal"><span class="pre">imaging</span></code></a>: Imaging methods for potential fields for
+estimating physical property distributions</li>
+<li><a class="reference internal" href="api/gravmag.tensor.html#module-fatiando.gravmag.tensor" title="fatiando.gravmag.tensor"><code class="xref py py-mod docutils literal"><span class="pre">tensor</span></code></a>: Utilities for operating on the gradient
+tensor</li>
+</ul>
+</div>
+<div class="section" id="interactivity">
+<h3>Interactivity<a class="headerlink" href="#interactivity" title="Permalink to this headline">¶</a></h3>
+<p>Module <a class="reference internal" href="api/gravmag.interactive.html#module-fatiando.gravmag.interactive" title="fatiando.gravmag.interactive"><code class="xref py py-mod docutils literal"><span class="pre">interactive</span></code></a> implements matplotlib GUIs and
+IPython HTML widgets for interacting with the modeling and processing
+functions.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="forward-modeling">
+<h3>Forward modeling<a class="headerlink" href="#forward-modeling" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">fatiando.gravmag</span></code> package defines a few modules that calculate the
+potential fields of some geometric primitives.</p>
+<div class="section" id="spheres">
+<h4>Spheres<a class="headerlink" href="#spheres" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gz.html#fatiando.gravmag.sphere.gz" title="fatiando.gravmag.sphere.gz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_z\)</span> gravitational acceleration component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gxx.html#fatiando.gravmag.sphere.gxx" title="fatiando.gravmag.sphere.gxx"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gxx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_{xx}\)</span> gravity gradient component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gxy.html#fatiando.gravmag.sphere.gxy" title="fatiando.gravmag.sphere.gxy"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gxy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_{xy}\)</span> gravity gradient component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gxz.html#fatiando.gravmag.sphere.gxz" title="fatiando.gravmag.sphere.gxz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gxz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_{xz}\)</span> gravity gradient component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gyy.html#fatiando.gravmag.sphere.gyy" title="fatiando.gravmag.sphere.gyy"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gyy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_{yy}\)</span> gravity gradient component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gyz.html#fatiando.gravmag.sphere.gyz" title="fatiando.gravmag.sphere.gyz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gyz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_{yz}\)</span> gravity gradient component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.gzz.html#fatiando.gravmag.sphere.gzz" title="fatiando.gravmag.sphere.gzz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.gzz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;dens])</td>
+<td>The <span class="math">\(g_{zz}\)</span> gravity gradient component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.tf.html#fatiando.gravmag.sphere.tf" title="fatiando.gravmag.sphere.tf"><code class="xref py py-obj docutils literal"><span class="pre">sphere.tf</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres,&nbsp;inc,&nbsp;dec[,&nbsp;pmag])</td>
+<td>The total-field magnetic anomaly.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.bx.html#fatiando.gravmag.sphere.bx" title="fatiando.gravmag.sphere.bx"><code class="xref py py-obj docutils literal"><span class="pre">sphere.bx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;pmag])</td>
+<td>The x component of the magnetic induction.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.by.html#fatiando.gravmag.sphere.by" title="fatiando.gravmag.sphere.by"><code class="xref py py-obj docutils literal"><span class="pre">sphere.by</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;pmag])</td>
+<td>The y component of the magnetic induction.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.bz.html#fatiando.gravmag.sphere.bz" title="fatiando.gravmag.sphere.bz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.bz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;spheres[,&nbsp;pmag])</td>
+<td>The z component of the magnetic induction.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.kernelxx.html#fatiando.gravmag.sphere.kernelxx" title="fatiando.gravmag.sphere.kernelxx"><code class="xref py py-obj docutils literal"><span class="pre">sphere.kernelxx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;sphere)</td>
+<td>The second x derivative of the kernel function</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.kernelxy.html#fatiando.gravmag.sphere.kernelxy" title="fatiando.gravmag.sphere.kernelxy"><code class="xref py py-obj docutils literal"><span class="pre">sphere.kernelxy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;sphere)</td>
+<td>The xy derivative of the kernel function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.kernelxz.html#fatiando.gravmag.sphere.kernelxz" title="fatiando.gravmag.sphere.kernelxz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.kernelxz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;sphere)</td>
+<td>The xz derivative of the kernel function</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.kernelyy.html#fatiando.gravmag.sphere.kernelyy" title="fatiando.gravmag.sphere.kernelyy"><code class="xref py py-obj docutils literal"><span class="pre">sphere.kernelyy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;sphere)</td>
+<td>The second y derivative of the kernel function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.kernelyz.html#fatiando.gravmag.sphere.kernelyz" title="fatiando.gravmag.sphere.kernelyz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.kernelyz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;sphere)</td>
+<td>The yz derivative of the kernel function</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.sphere.kernelzz.html#fatiando.gravmag.sphere.kernelzz" title="fatiando.gravmag.sphere.kernelzz"><code class="xref py py-obj docutils literal"><span class="pre">sphere.kernelzz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;sphere)</td>
+<td>The second z derivative of the kernel function</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="polygonal-prisms">
+<h4>Polygonal prisms<a class="headerlink" href="#polygonal-prisms" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gz.html#fatiando.gravmag.polyprism.gz" title="fatiando.gravmag.polyprism.gz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>z component of gravitational acceleration of a polygonal prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gxx.html#fatiando.gravmag.polyprism.gxx" title="fatiando.gravmag.polyprism.gxx"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gxx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>xx component of the gravity gradient tensor of a polygonal prism.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gxy.html#fatiando.gravmag.polyprism.gxy" title="fatiando.gravmag.polyprism.gxy"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gxy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>xy component of the gravity gradient tensor of a polygonal prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gxz.html#fatiando.gravmag.polyprism.gxz" title="fatiando.gravmag.polyprism.gxz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gxz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>xz component of the gravity gradient tensor of a polygonal prism.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gyy.html#fatiando.gravmag.polyprism.gyy" title="fatiando.gravmag.polyprism.gyy"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gyy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>yy component of the gravity gradient tensor of a polygonal prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gyz.html#fatiando.gravmag.polyprism.gyz" title="fatiando.gravmag.polyprism.gyz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gyz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>yz component of the gravity gradient tensor of a polygonal prism.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.gzz.html#fatiando.gravmag.polyprism.gzz" title="fatiando.gravmag.polyprism.gzz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.gzz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>zz component of the gravity gradient tensor of a polygonal prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.tf.html#fatiando.gravmag.polyprism.tf" title="fatiando.gravmag.polyprism.tf"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.tf</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms,&nbsp;inc,&nbsp;dec[,&nbsp;…])</td>
+<td>The total-field magnetic anomaly of polygonal prisms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.bx.html#fatiando.gravmag.polyprism.bx" title="fatiando.gravmag.polyprism.bx"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.bx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>x component of magnetic induction of a polygonal prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.by.html#fatiando.gravmag.polyprism.by" title="fatiando.gravmag.polyprism.by"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.by</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>y component of magnetic induction of a polygonal prism.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.bz.html#fatiando.gravmag.polyprism.bz" title="fatiando.gravmag.polyprism.bz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.bz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms)</td>
+<td>z component of magnetic induction of a polygonal prism.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.kernelxx.html#fatiando.gravmag.polyprism.kernelxx" title="fatiando.gravmag.polyprism.kernelxx"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.kernelxx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prism)</td>
+<td>The xx second-derivative of the kernel function <span class="math">\(\phi\)</span>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.kernelxy.html#fatiando.gravmag.polyprism.kernelxy" title="fatiando.gravmag.polyprism.kernelxy"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.kernelxy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prism)</td>
+<td>The xy second-derivative of the kernel function <span class="math">\(\phi\)</span>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.kernelxz.html#fatiando.gravmag.polyprism.kernelxz" title="fatiando.gravmag.polyprism.kernelxz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.kernelxz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prism)</td>
+<td>The xz second-derivative of the kernel function <span class="math">\(\phi\)</span>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.kernelyy.html#fatiando.gravmag.polyprism.kernelyy" title="fatiando.gravmag.polyprism.kernelyy"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.kernelyy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prism)</td>
+<td>The yy second-derivative of the kernel function <span class="math">\(\phi\)</span>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.kernelyz.html#fatiando.gravmag.polyprism.kernelyz" title="fatiando.gravmag.polyprism.kernelyz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.kernelyz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prism)</td>
+<td>The yz second-derivative of the kernel function <span class="math">\(\phi\)</span>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.polyprism.kernelzz.html#fatiando.gravmag.polyprism.kernelzz" title="fatiando.gravmag.polyprism.kernelzz"><code class="xref py py-obj docutils literal"><span class="pre">polyprism.kernelzz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prism)</td>
+<td>The zz second-derivative of the kernel function <span class="math">\(\phi\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="right-rectangular-prisms">
+<h4>Right-rectangular prisms<a class="headerlink" href="#right-rectangular-prisms" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.potential.html#fatiando.gravmag.prism.potential" title="fatiando.gravmag.prism.potential"><code class="xref py py-obj docutils literal"><span class="pre">prism.potential</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the gravitational potential.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gx.html#fatiando.gravmag.prism.gx" title="fatiando.gravmag.prism.gx"><code class="xref py py-obj docutils literal"><span class="pre">prism.gx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_x\)</span> gravity acceleration component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gy.html#fatiando.gravmag.prism.gy" title="fatiando.gravmag.prism.gy"><code class="xref py py-obj docutils literal"><span class="pre">prism.gy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_y\)</span> gravity acceleration component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gz.html#fatiando.gravmag.prism.gz" title="fatiando.gravmag.prism.gz"><code class="xref py py-obj docutils literal"><span class="pre">prism.gz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_z\)</span> gravity acceleration component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gxx.html#fatiando.gravmag.prism.gxx" title="fatiando.gravmag.prism.gxx"><code class="xref py py-obj docutils literal"><span class="pre">prism.gxx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_{xx}\)</span> gravity gradient tensor component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gxy.html#fatiando.gravmag.prism.gxy" title="fatiando.gravmag.prism.gxy"><code class="xref py py-obj docutils literal"><span class="pre">prism.gxy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_{xy}\)</span> gravity gradient tensor component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gxz.html#fatiando.gravmag.prism.gxz" title="fatiando.gravmag.prism.gxz"><code class="xref py py-obj docutils literal"><span class="pre">prism.gxz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_{xz}\)</span> gravity gradient tensor component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gyy.html#fatiando.gravmag.prism.gyy" title="fatiando.gravmag.prism.gyy"><code class="xref py py-obj docutils literal"><span class="pre">prism.gyy</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_{yy}\)</span> gravity gradient tensor component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gyz.html#fatiando.gravmag.prism.gyz" title="fatiando.gravmag.prism.gyz"><code class="xref py py-obj docutils literal"><span class="pre">prism.gyz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_{yz}\)</span> gravity gradient tensor component.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.gzz.html#fatiando.gravmag.prism.gzz" title="fatiando.gravmag.prism.gzz"><code class="xref py py-obj docutils literal"><span class="pre">prism.gzz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_{zz}\)</span> gravity gradient tensor component.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.tf.html#fatiando.gravmag.prism.tf" title="fatiando.gravmag.prism.tf"><code class="xref py py-obj docutils literal"><span class="pre">prism.tf</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms,&nbsp;inc,&nbsp;dec[,&nbsp;pmag])</td>
+<td>Calculate the total-field magnetic anomaly of prisms.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.bx.html#fatiando.gravmag.prism.bx" title="fatiando.gravmag.prism.bx"><code class="xref py py-obj docutils literal"><span class="pre">prism.bx</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;pmag])</td>
+<td>Calculates the x component of the magnetic induction produced by rectangular prisms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.prism.by.html#fatiando.gravmag.prism.by" title="fatiando.gravmag.prism.by"><code class="xref py py-obj docutils literal"><span class="pre">prism.by</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;pmag])</td>
+<td>Calculates the y component of the magnetic induction produced by rectangular prisms.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.prism.bz.html#fatiando.gravmag.prism.bz" title="fatiando.gravmag.prism.bz"><code class="xref py py-obj docutils literal"><span class="pre">prism.bz</span></code></a>(xp,&nbsp;yp,&nbsp;zp,&nbsp;prisms[,&nbsp;pmag])</td>
+<td>Calculates the z component of the magnetic induction produced by rectangular prisms.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="polygons-2d">
+<h4>Polygons (2D)<a class="headerlink" href="#polygons-2d" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.talwani.gz.html#fatiando.gravmag.talwani.gz" title="fatiando.gravmag.talwani.gz"><code class="xref py py-obj docutils literal"><span class="pre">talwani.gz</span></code></a>(xp,&nbsp;zp,&nbsp;polygons[,&nbsp;dens])</td>
+<td>Calculates the <span class="math">\(g_z\)</span> gravity acceleration component.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tesseroids-spherical-prisms">
+<h4>Tesseroids (spherical prisms)<a class="headerlink" href="#tesseroids-spherical-prisms" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.potential.html#fatiando.gravmag.tesseroid.potential" title="fatiando.gravmag.tesseroid.potential"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.potential</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model)</td>
+<td>Calculate the gravitational potential due to a tesseroid model.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gx.html#fatiando.gravmag.tesseroid.gx" title="fatiando.gravmag.tesseroid.gx"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gx</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the North component of the gravitational attraction.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gy.html#fatiando.gravmag.tesseroid.gy" title="fatiando.gravmag.tesseroid.gy"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gy</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the East component of the gravitational attraction.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gz.html#fatiando.gravmag.tesseroid.gz" title="fatiando.gravmag.tesseroid.gz"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gz</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the radial component of the gravitational attraction.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gxx.html#fatiando.gravmag.tesseroid.gxx" title="fatiando.gravmag.tesseroid.gxx"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gxx</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the xx component of the gravity gradient tensor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gxy.html#fatiando.gravmag.tesseroid.gxy" title="fatiando.gravmag.tesseroid.gxy"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gxy</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the xy component of the gravity gradient tensor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gxz.html#fatiando.gravmag.tesseroid.gxz" title="fatiando.gravmag.tesseroid.gxz"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gxz</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the xz component of the gravity gradient tensor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gyy.html#fatiando.gravmag.tesseroid.gyy" title="fatiando.gravmag.tesseroid.gyy"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gyy</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the yy component of the gravity gradient tensor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gyz.html#fatiando.gravmag.tesseroid.gyz" title="fatiando.gravmag.tesseroid.gyz"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gyz</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the yz component of the gravity gradient tensor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/fatiando.gravmag.tesseroid.gzz.html#fatiando.gravmag.tesseroid.gzz" title="fatiando.gravmag.tesseroid.gzz"><code class="xref py py-obj docutils literal"><span class="pre">tesseroid.gzz</span></code></a>(lon,&nbsp;lat,&nbsp;height,&nbsp;model[,&nbsp;…])</td>
+<td>Calculate the zz component of the gravity gradient tensor.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="module-fatiando.geothermal">
+<span id="fatiando-geothermal-geothermal-methods"></span><h2><code class="docutils literal"><span class="pre">fatiando.geothermal</span></code>: Geothermal methods<a class="headerlink" href="#module-fatiando.geothermal" title="Permalink to this headline">¶</a></h2>
+<p>Modeling and inversion for geothermal heat transfer.</p>
+<div class="section" id="climate-signal">
+<h3>Climate signal<a class="headerlink" href="#climate-signal" title="Permalink to this headline">¶</a></h3>
+<p>Modeling and inversion of temperature residuals measured in wells due to
+temperature perturbations in the surface.</p>
+<ul class="simple">
+<li><a class="reference internal" href="api/geothermal.climsig.html#module-fatiando.geothermal.climsig" title="fatiando.geothermal.climsig"><code class="xref py py-mod docutils literal"><span class="pre">climsig</span></code></a></li>
+</ul>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="_sources/api.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+:mod:`fatiando.datasets`.fetch_hawaii_gravity
+==========================================================
+
+.. currentmodule:: fatiando.datasets
+
+.. autofunction:: fetch_hawaii_gravity

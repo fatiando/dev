@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.mgal2si
+==========================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: mgal2si

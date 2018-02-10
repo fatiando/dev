@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.circular_scatter
+=====================================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: circular_scatter

@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.pad_coords
+===============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: pad_coords

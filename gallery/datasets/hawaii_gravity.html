@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hawaii gravity data &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tilt angle of magnetic anomalies" href="../gravmag/tilt_angle.html" />
+    <link rel="prev" title="Create a model based on an image file" href="from_image.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../../index.html">
+            
+                <img src="../../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../../install.html">Install</a></li>
+                    <li><a href="../index.html">Gallery</a></li>
+                    <li><a href="../../api.html">API</a></li>
+                    <li><a href="../../docs.html">Docs</a></li>
+                    <li><a href="../../develop.html">Contribute</a></li>
+                    <li><a href="../../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+                <div class="col-md-12 content">
+                    <div class="section" id="hawaii-gravity-data">
+<span id="sphx-glr-gallery-datasets-hawaii-gravity-py"></span><h1>Hawaii gravity data<a class="headerlink" href="#hawaii-gravity-data" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="../../api.html#module-fatiando.datasets" title="fatiando.datasets"><code class="xref py py-mod docutils literal"><span class="pre">fatiando.datasets</span></code></a> package includes some data sets to make it easier
+to try things out in Fatiando.</p>
+<p>This example shows the gravity data from Hawaii.</p>
+<img alt="../../_images/sphx_glr_hawaii_gravity_001.png" class="align-center" src="../../_images/sphx_glr_hawaii_gravity_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-default"><div class="highlight"><pre><span></span><span class="n">Data</span> <span class="n">keys</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;topo-free&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;gravity&#39;</span><span class="p">,</span> <span class="s1">&#39;topo-free-bouguer&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="s1">&#39;disturbance&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+
+<span class="n">Metadata</span><span class="p">:</span>
+
+<span class="n">Data</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">eigen</span><span class="o">-</span><span class="mi">6</span><span class="n">c4</span> <span class="n">spherical</span> <span class="n">harmonic</span> <span class="n">model</span><span class="o">.</span>
+<span class="n">Downloaded</span> <span class="kn">from</span> <span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">icgem</span><span class="o">.</span><span class="n">gfz</span><span class="o">-</span><span class="n">potsdam</span><span class="o">.</span><span class="n">de</span>
+
+<span class="n">File</span> <span class="n">header</span> <span class="k">for</span> <span class="n">the</span> <span class="n">gravity</span> <span class="n">data</span><span class="p">:</span>
+
+<span class="n">generating_institute</span>     <span class="n">gfz</span><span class="o">-</span><span class="n">potsdam</span>
+     <span class="n">generating_date</span>     <span class="mi">2016</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="mi">15</span>
+        <span class="n">product_type</span>     <span class="n">gravity_field</span>
+                <span class="n">body</span>     <span class="n">earth</span>
+           <span class="n">modelname</span>     <span class="n">eigen</span><span class="o">-</span><span class="mi">6</span><span class="n">c4</span>
+     <span class="n">max_used_degree</span>          <span class="mi">2190</span>
+         <span class="n">tide_system</span>     <span class="n">tide_free</span>
+          <span class="n">functional</span>     <span class="n">gravity_ell</span>  <span class="p">(</span><span class="n">centrifugal</span> <span class="n">term</span> <span class="n">included</span><span class="p">)</span>
+                <span class="n">unit</span>     <span class="n">mgal</span>
+          <span class="n">refsysname</span>     <span class="n">WGS84</span>
+            <span class="n">gmrefpot</span>      <span class="mf">3.98600441800E+14</span> <span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">radiusrefpot</span>     <span class="mf">6378137.000</span> <span class="n">m</span>
+          <span class="n">flatrefpot</span>      <span class="mf">3.352810664747480E-03</span>   <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">298.25722356300</span><span class="p">)</span>
+         <span class="n">omegarefpot</span>      <span class="mf">7.29211500000E-05</span> <span class="mi">1</span><span class="o">/</span><span class="n">s</span>
+       <span class="n">long_lat_unit</span>     <span class="n">degree</span>
+      <span class="n">latlimit_north</span>       <span class="mf">28.000000000000</span>
+      <span class="n">latlimit_south</span>       <span class="mf">13.000000000000</span>
+      <span class="n">longlimit_west</span>       <span class="mf">195.00000000000</span>
+      <span class="n">longlimit_east</span>       <span class="mf">210.00000000000</span>
+            <span class="n">gridstep</span>      <span class="mf">0.20000000000000</span>
+     <span class="n">height_over_ell</span>       <span class="mf">5000.0000</span> <span class="n">m</span>
+  <span class="n">latitude_parallels</span>            <span class="mi">76</span>
+ <span class="n">longitude_parallels</span>            <span class="mi">76</span>
+<span class="n">number_of_gridpoints</span>          <span class="mi">5776</span>
+            <span class="n">gapvalue</span>        <span class="mf">9999999.0000</span>
+       <span class="n">weighted_mean</span>      <span class="mf">9.7714632E+05</span> <span class="n">mgal</span>
+            <span class="n">maxvalue</span>      <span class="mf">9.7766755E+05</span> <span class="n">mgal</span>
+            <span class="n">minvalue</span>      <span class="mf">9.7673969E+05</span> <span class="n">mgal</span>
+         <span class="n">signal_wrms</span>      <span class="mf">2.6340410E+02</span> <span class="n">mgal</span>
+         <span class="n">grid_format</span>     <span class="n">long_lat_value</span>
+
+
+<span class="n">File</span> <span class="n">header</span> <span class="k">for</span> <span class="n">the</span> <span class="n">topography</span> <span class="n">data</span><span class="p">:</span>
+
+<span class="n">generating_institute</span>     <span class="n">gfz</span><span class="o">-</span><span class="n">potsdam</span>
+     <span class="n">generating_date</span>     <span class="mi">2016</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="mi">14</span>
+        <span class="n">product_type</span>     <span class="n">topography</span>
+                <span class="n">body</span>     <span class="n">earth</span>
+           <span class="n">modelname</span>     <span class="n">etopo1_bin_int</span>
+          <span class="n">functional</span>     <span class="n">topography_grd</span> <span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">=&gt;</span><span class="n">bi</span><span class="o">-</span><span class="n">linear</span> <span class="n">interpolation</span>
+                <span class="n">unit</span>     <span class="n">meter</span>
+          <span class="n">refsysname</span>     <span class="n">WGS84</span>
+        <span class="n">radiusrefsys</span>     <span class="mf">6378137.000</span> <span class="n">m</span>
+          <span class="n">flatrefsys</span>      <span class="mf">3.352810664747480E-03</span>   <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">298.25722356300</span><span class="p">)</span>
+       <span class="n">long_lat_unit</span>     <span class="n">degree</span>
+      <span class="n">latlimit_north</span>       <span class="mf">28.000000000000</span>
+      <span class="n">latlimit_south</span>       <span class="mf">13.000000000000</span>
+      <span class="n">longlimit_west</span>       <span class="mf">195.00000000000</span>
+      <span class="n">longlimit_east</span>       <span class="mf">210.00000000000</span>
+            <span class="n">gridstep</span>      <span class="mf">0.20000000000000</span>
+  <span class="n">latitude_parallels</span>            <span class="mi">76</span>
+ <span class="n">longitude_parallels</span>            <span class="mi">76</span>
+<span class="n">number_of_gridpoints</span>          <span class="mi">5776</span>
+            <span class="n">gapvalue</span>          <span class="mf">99999.0000</span>
+       <span class="n">weighted_mean</span>     <span class="o">-</span><span class="mf">4.9606823E+03</span> <span class="n">meter</span>
+            <span class="n">maxvalue</span>      <span class="mf">3.5530000E+03</span> <span class="n">meter</span>
+            <span class="n">minvalue</span>     <span class="o">-</span><span class="mf">6.2880000E+03</span> <span class="n">meter</span>
+         <span class="n">signal_wrms</span>      <span class="mf">9.2299326E+02</span> <span class="n">meter</span>
+         <span class="n">grid_format</span>     <span class="n">long_lat_value</span>
+
+<span class="n">x</span> <span class="p">(</span><span class="n">north</span><span class="o">-</span><span class="n">south</span><span class="p">)</span> <span class="ow">and</span> <span class="n">y</span> <span class="p">(</span><span class="n">east</span><span class="o">-</span><span class="n">west</span><span class="p">)</span> <span class="n">coordinates</span> <span class="n">are</span> <span class="n">UTM</span> <span class="n">zone</span> <span class="mi">4</span> <span class="p">(</span><span class="n">WGS84</span><span class="p">)</span> <span class="ow">in</span> <span class="n">meters</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">gravity</span> <span class="n">disturbance</span> <span class="n">was</span> <span class="n">calculated</span> <span class="n">using</span> <span class="n">the</span> <span class="n">closed</span><span class="o">-</span><span class="n">form</span> <span class="n">formula</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">WGS84</span> <span class="n">ellipsoid</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">topography</span><span class="o">-</span><span class="n">free</span> <span class="n">disturbances</span> <span class="p">(</span><span class="n">both</span> <span class="n">Bouguer</span> <span class="ow">and</span> <span class="n">full</span><span class="p">)</span> <span class="n">used</span> <span class="n">densities</span>
+<span class="mi">2670</span> <span class="n">kg</span><span class="o">/</span><span class="n">m</span><span class="o">^</span><span class="mi">3</span> <span class="k">for</span> <span class="n">the</span> <span class="n">crust</span> <span class="ow">and</span> <span class="mi">1040</span> <span class="n">kg</span><span class="o">/</span><span class="n">m</span><span class="o">^</span><span class="mi">3</span> <span class="k">for</span> <span class="n">the</span> <span class="n">ocean</span> <span class="n">water</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">full</span> <span class="n">topography</span><span class="o">-</span><span class="n">free</span> <span class="n">disturbance</span> <span class="n">was</span> <span class="n">calculated</span> <span class="n">using</span> <span class="n">a</span> <span class="n">tesseroid</span> <span class="n">model</span> <span class="n">of</span> <span class="n">the</span> <span class="n">topography</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">fatiando.datasets</span> <span class="kn">import</span> <span class="n">fetch_hawaii_gravity</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Load the gravity data from Hawaii</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">fetch_hawaii_gravity</span><span class="p">()</span>
+
+<span class="c1"># The data are packaged in a dictionary. Look at the keys to see what is</span>
+<span class="c1"># available.</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Data keys:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># There are some metadata included</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Metadata:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+
+<span class="c1"># Let&#39;s plot all of it using the UTM x and y coordinates</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Raw gravity of Hawaii&#39;</span><span class="p">)</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;gravity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Topography&#39;</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;topography&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">scale</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gravity disturbance&#39;</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;disturbance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;disturbance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;disturbance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">scale</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="c1"># The disturbance without the effects of topography (calculated using the</span>
+<span class="c1"># Bouguer plate)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Topography-free disturbance (Bouguer)&#39;</span><span class="p">)</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;topo-free-bouguer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="c1"># The disturbance without the effects of topography (calculated using a</span>
+<span class="c1"># tesseroid model of the topography)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Topography-free disturbance (full)&#39;</span><span class="p">)</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;topo-free&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span> <span class="mi">60</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;mGal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.895 seconds)</p>
+<div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/hawaii_gravity.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">hawaii_gravity.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../../_downloads/hawaii_gravity.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">hawaii_gravity.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="../../_sources/gallery/datasets/hawaii_gravity.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

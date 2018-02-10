@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.pad_array
+==============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: pad_array

@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.ang2vec
+==========================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: ang2vec

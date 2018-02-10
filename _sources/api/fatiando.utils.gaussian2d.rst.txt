@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.gaussian2d
+=============================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: gaussian2d

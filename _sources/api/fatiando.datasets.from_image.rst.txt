@@ -1,0 +1,6 @@
+:mod:`fatiando.datasets`.from_image
+================================================
+
+.. currentmodule:: fatiando.datasets
+
+.. autofunction:: from_image

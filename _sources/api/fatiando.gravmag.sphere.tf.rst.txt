@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.sphere`.tf
+==============================================
+
+.. currentmodule:: fatiando.gravmag.sphere
+
+.. autofunction:: tf

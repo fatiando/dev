@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.tesseroid`.gz
+=================================================
+
+.. currentmodule:: fatiando.gravmag.tesseroid
+
+.. autofunction:: gz

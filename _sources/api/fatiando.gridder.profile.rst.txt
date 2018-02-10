@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.profile
+============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: profile

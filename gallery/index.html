@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Example Gallery &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create a model based on an image file" href="datasets/from_image.html" />
+    <link rel="prev" title="Geothermal: Climate signal: What happens when assuming a climate change is linear, when in fact it was abrupt?" href="../cookbook/geothermal_climsig_wrong.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../index.html">
+            
+                <img src="../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../install.html">Install</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="../api.html">API</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="../develop.html">Contribute</a></li>
+                    <li><a href="../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Example Gallery</a><ul>
+<li><a class="reference internal" href="#datasets-packaged-with-fatiando">Datasets packaged with Fatiando</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#gravity-and-magnetics">Gravity and magnetics</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#grid-generation-and-manipulation">Grid generation and manipulation</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#seismology-and-seismics">Seismology and seismics</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#visualization">Visualization</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+                <div class="col-md-9 content">
+                    <div class="section" id="example-gallery">
+<span id="gallery"></span><h1>Example Gallery<a class="headerlink" href="#example-gallery" title="Permalink to this headline">¶</a></h1>
+<p>Click on any image below to see a full sized image and the code that generated
+it, with links to download the code as a Python <code class="docutils literal"><span class="pre">.py</span></code> script or as a
+<a class="reference external" href="http://jupyter.org/">Jupyter</a> (formerly IPython) notebook.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Gallery is a work in progress. We need <strong>your help</strong> to make it
+better! You can contribute by sending us your scripts for beautiful plots.
+Write to the <a class="reference external" href="https://groups.google.com/d/forum/fatiando">mailing list</a>
+or send us a
+<a class="reference external" href="https://github.com/fatiando/fatiando/pulls">pull request on Github</a>.</p>
+</div>
+<div style='clear:both'></div><div class="section" id="datasets-packaged-with-fatiando">
+<h2>Datasets packaged with Fatiando<a class="headerlink" href="#datasets-packaged-with-fatiando" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="Function :func:`fatiando.datasets.from_image` allows us to create a model template from an imag..."><div class="figure" id="id1">
+<img alt="../_images/sphx_glr_from_image_thumb.png" src="../_images/sphx_glr_from_image_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="datasets/from_image.html#sphx-glr-gallery-datasets-from-image-py"><span class="std std-ref">Create a model based on an image file</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.datasets` package includes some data sets to make it easier to try things ou..."><div class="figure" id="id2">
+<img alt="../_images/sphx_glr_hawaii_gravity_thumb.png" src="../_images/sphx_glr_hawaii_gravity_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="datasets/hawaii_gravity.html#sphx-glr-gallery-datasets-hawaii-gravity-py"><span class="std std-ref">Hawaii gravity data</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div style='clear:both'></div></div>
+<div class="section" id="gravity-and-magnetics">
+<h2>Gravity and magnetics<a class="headerlink" href="#gravity-and-magnetics" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="The tilt angle is a useful transformation of potential field data for boundary detection. It is..."><div class="figure" id="id3">
+<img alt="../_images/sphx_glr_tilt_angle_thumb.png" src="../_images/sphx_glr_tilt_angle_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/tilt_angle.html#sphx-glr-gallery-gravmag-tilt-angle-py"><span class="std std-ref">Tilt angle of magnetic anomalies</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="This example uses the Hawaii gravity data to compute the radial average of its power spectrum."><div class="figure" id="id4">
+<img alt="../_images/sphx_glr_radial_average_spectrum_thumb.png" src="../_images/sphx_glr_radial_average_spectrum_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/radial_average_spectrum.html#sphx-glr-gallery-gravmag-radial-average-spectrum-py"><span class="std std-ref">Radial Average Power Spectrum</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="If the direction of magnetization is known, you can reduce a measured total field magnetic anom..."><div class="figure" id="id5">
+<img alt="../_images/sphx_glr_reduction_pole_thumb.png" src="../_images/sphx_glr_reduction_pole_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/reduction_pole.html#sphx-glr-gallery-gravmag-reduction-pole-py"><span class="std std-ref">Reduction to the pole</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.gravmag` has many functions for forward modeling gravity and magnetic data. ..."><div class="figure" id="id6">
+<img alt="../_images/sphx_glr_forward_modeling_sphere_gravity_thumb.png" src="../_images/sphx_glr_forward_modeling_sphere_gravity_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/forward_modeling_sphere_gravity.html#sphx-glr-gallery-gravmag-forward-modeling-sphere-gravity-py"><span class="std std-ref">Forward modeling gravity data using spheres in Cartesian coordinates</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.gravmag` package has function for performing gravity corrections to obtain t..."><div class="figure" id="id7">
+<img alt="../_images/sphx_glr_gravity_corrections_thumb.png" src="../_images/sphx_glr_gravity_corrections_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/gravity_corrections.html#sphx-glr-gallery-gravmag-gravity-corrections-py"><span class="std std-ref">Gravity corrections (normal gravity and Bouguer)</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.gravmag` has many functions for forward modeling gravity and magnetic data. ..."><div class="figure" id="id8">
+<img alt="../_images/sphx_glr_forward_modeling_sphere_mag_thumb.png" src="../_images/sphx_glr_forward_modeling_sphere_mag_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/forward_modeling_sphere_mag.html#sphx-glr-gallery-gravmag-forward-modeling-sphere-mag-py"><span class="std std-ref">Forward modeling magnetic data using spheres in Cartesian coordinates</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The equivalent layer is one of the best methods for griding and upward continuing gravity data ..."><div class="figure" id="id9">
+<img alt="../_images/sphx_glr_eqlayer_transform_thumb.png" src="../_images/sphx_glr_eqlayer_transform_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/eqlayer_transform.html#sphx-glr-gallery-gravmag-eqlayer-transform-py"><span class="std std-ref">Equivalent layer for griding and upward-continuing gravity data</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Euler deconvolution with a moving window ----------------------------------------"><div class="figure" id="id10">
+<img alt="../_images/sphx_glr_euler_moving_window_thumb.png" src="../_images/sphx_glr_euler_moving_window_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/euler_moving_window.html#sphx-glr-gallery-gravmag-euler-moving-window-py"><span class="std std-ref">Euler deconvolution with a moving window</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Module :mod:`fatiando.gravmag.imaging` has functions for imaging methods in potential fields. T..."><div class="figure" id="id11">
+<img alt="../_images/sphx_glr_imaging_geninv_thumb.png" src="../_images/sphx_glr_imaging_geninv_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/imaging_geninv.html#sphx-glr-gallery-gravmag-imaging-geninv-py"><span class="std std-ref">Potential field imaging through the Generalized Inverse method</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The equivalent layer can be used to reduce magnetic data to the pole. One of the main advantage..."><div class="figure" id="id12">
+<img alt="../_images/sphx_glr_eqlayer_mag_transform_thumb.png" src="../_images/sphx_glr_eqlayer_mag_transform_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/eqlayer_mag_transform.html#sphx-glr-gallery-gravmag-eqlayer-mag-transform-py"><span class="std std-ref">Equivalent layer for reduction to the pole of magnetic data</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The usual approach to Euler deconvolution using a :ref:`moving window scheme &lt;gallery_euler_mw&gt;..."><div class="figure" id="id13">
+<img alt="../_images/sphx_glr_euler_expanding_window_thumb.png" src="../_images/sphx_glr_euler_expanding_window_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gravmag/euler_expanding_window.html#sphx-glr-gallery-gravmag-euler-expanding-window-py"><span class="std std-ref">Euler deconvolution with expanding windows</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div style='clear:both'></div></div>
+<div class="section" id="grid-generation-and-manipulation">
+<h2>Grid generation and manipulation<a class="headerlink" href="#grid-generation-and-manipulation" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="You can create the (x, y, z) coordinate arrays for regular grids using :func:`fatiando.gridder...."><div class="figure" id="id14">
+<img alt="../_images/sphx_glr_regular_grid_thumb.png" src="../_images/sphx_glr_regular_grid_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gridder/regular_grid.html#sphx-glr-gallery-gridder-regular-grid-py"><span class="std std-ref">Regular grids</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The function :func:`fatiando.gridder.profile` can be used to extract a profile of data from a m..."><div class="figure" id="id15">
+<img alt="../_images/sphx_glr_profile_thumb.png" src="../_images/sphx_glr_profile_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gridder/profile.html#sphx-glr-gallery-gridder-profile-py"><span class="std std-ref">Extracting a profile from spacial data</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The :func:`fatiando.gridder.cut` function extracts points from spatially distributed  data that..."><div class="figure" id="id16">
+<img alt="../_images/sphx_glr_cutting_thumb.png" src="../_images/sphx_glr_cutting_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gridder/cutting.html#sphx-glr-gallery-gridder-cutting-py"><span class="std std-ref">Cutting a section from spacial data</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="You can create the (x, y, z) coordinate arrays for a random scatter of points using :func:`fati..."><div class="figure" id="id17">
+<img alt="../_images/sphx_glr_point_scatter_thumb.png" src="../_images/sphx_glr_point_scatter_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gridder/point_scatter.html#sphx-glr-gallery-gridder-point-scatter-py"><span class="std std-ref">Point scatters</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="Sometimes it is useful to add some padding points to the edges of grids, for example during FFT..."><div class="figure" id="id18">
+<img alt="../_images/sphx_glr_padding_thumb.png" src="../_images/sphx_glr_padding_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gridder/padding.html#sphx-glr-gallery-gridder-padding-py"><span class="std std-ref">Pad the edges of grids using various methods</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The functions :func:`fatiando.gridder.interp` and :func:`fatiando.gridder.interp_at` offer conv..."><div class="figure" id="id19">
+<img alt="../_images/sphx_glr_interpolate_thumb.png" src="../_images/sphx_glr_interpolate_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gridder/interpolate.html#sphx-glr-gallery-gridder-interpolate-py"><span class="std std-ref">Interpolate irregular data</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div style='clear:both'></div></div>
+<div class="section" id="seismology-and-seismics">
+<h2>Seismology and seismics<a class="headerlink" href="#seismology-and-seismics" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.seismic` package defines classes to evaluate and sample wavelets. Here is an..."><div class="figure" id="id20">
+<img alt="../_images/sphx_glr_wavelets_thumb.png" src="../_images/sphx_glr_wavelets_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="seismic/wavelets.html#sphx-glr-gallery-seismic-wavelets-py"><span class="std std-ref">Wavelets for seismic modeling</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="The simplest way to get a seismogram (in time x offset) is through the convolutional model"><div class="figure" id="id21">
+<img alt="../_images/sphx_glr_convolutional_model_thumb.png" src="../_images/sphx_glr_convolutional_model_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="seismic/convolutional_model.html#sphx-glr-gallery-seismic-convolutional-model-py"><span class="std std-ref">Synthetic seismograms using the convolutional model</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="A very simplified way of playing around with tomography is through a straight-ray approximation..."><div class="figure" id="id22">
+<img alt="../_images/sphx_glr_srtomo_regularized_thumb.png" src="../_images/sphx_glr_srtomo_regularized_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="seismic/srtomo_regularized.html#sphx-glr-gallery-seismic-srtomo-regularized-py"><span class="std std-ref">Straight-ray toy tomography with different regularization</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div style='clear:both'></div></div>
+<div class="section" id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<div class="sphx-glr-thumbcontainer" tooltip="One way to plot seismic data is using black and white wiggles. Function :func:`fatiando.vis.mpl..."><div class="figure" id="id23">
+<img alt="../_images/sphx_glr_seismic-wiggle_thumb.png" src="../_images/sphx_glr_seismic-wiggle_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="vis/seismic-wiggle.html#sphx-glr-gallery-vis-seismic-wiggle-py"><span class="std std-ref">Plotting seismic data with wiggles</span></a></span></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div style='clear:both'></div><div class="sphx-glr-footer docutils container">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../_downloads/gallery_python.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">gallery_python.zip</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" href="../_downloads/gallery_jupyter.zip" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">gallery_jupyter.zip</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="../_sources/gallery/index.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

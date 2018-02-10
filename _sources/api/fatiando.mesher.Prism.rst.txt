@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.Prism
+===================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: Prism
+    :members:
+    :inherited-members:

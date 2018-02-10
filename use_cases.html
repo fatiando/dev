@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Use cases of Fatiando &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="Citing" href="cite.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="index.html">
+            
+                <img src="_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="install.html">Install</a></li>
+                    <li><a href="gallery/index.html">Gallery</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="develop.html">Contribute</a></li>
+                    <li><a href="cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Use cases of Fatiando</a><ul>
+<li><a class="reference internal" href="#publications">Publications</a></li>
+<li><a class="reference internal" href="#teaching-material">Teaching Material</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+                <div class="col-md-9 content">
+                    <div class="section" id="use-cases-of-fatiando">
+<span id="use-cases"></span><h1>Use cases of Fatiando<a class="headerlink" href="#use-cases-of-fatiando" title="Permalink to this headline">¶</a></h1>
+<p>The following publications, teaching material, etc, have used Fatiando in some
+way. Whenever possible, links to the source code and PDFs are provided as well.</p>
+<div class="admonition-don-t-see-your-contribution-here admonition">
+<p class="first admonition-title">Don’t see your contribution here?</p>
+<p class="last">Write to the <a class="reference external" href="https://groups.google.com/d/forum/fatiando">mailing list</a> or open an <a class="reference external" href="https://github.com/fatiando/fatiando/issues?q=is%3Aopen">issue on Github</a> to let us know.
+Even better if your source code is available somewhere on the internet (but
+it’s OK if it isn’t).</p>
+</div>
+<div class="section" id="publications">
+<h2>Publications<a class="headerlink" href="#publications" title="Permalink to this headline">¶</a></h2>
+<p>Hidalgo-Gato, M., and V. Barbosa (2017), The monogenic signal of
+potential-field data: A Python implementation, Geophysics, F9–F14,
+doi:<a class="reference external" href="https://doi.org/10.1190/geo2016-0099.1">10.1190/geo2016-0099.1</a>.
+[<a class="reference external" href="https://github.com/pinga-lab/paper-monogenic-signal">code</a>]</p>
+<p>Uieda, L., and V. C. F. Barbosa (2017), Fast nonlinear gravity inversion in
+spherical coordinates with application to the South American Moho, Geophys. J.
+Int., 208(1), 162-176, doi:<a class="reference external" href="https://doi.org/10.1093/gji/ggw390">10.1093/gji/ggw390</a>.
+[<a class="reference external" href="http://www.leouieda.com/pdf/paper-moho-inversion-tesseroids.pdf">pdf</a>]
+[<a class="reference external" href="https://github.com/pinga-lab/paper-moho-inversion-tesseroids">code</a>]</p>
+<p>Bassett, D., D. T. Sandwell, Y. Fialko, and A. B. Watts (2016), Upper-plate
+controls on co-seismic slip in the 2011 magnitude 9.0 Tohoku-oki earthquake,
+Nature, 531(7592), 92-96, doi:<a class="reference external" href="https://doi.org/10.1038/nature16945">10.1038/nature16945</a>.</p>
+<p>Matthews, S. J., C. O’Neill, and M. A. Lackie (2016), A Monte Carlo approach to
+constraining uncertainties in modelled downhole gravity gradiometry
+applications, Explor. Geophys, doi:<a class="reference external" href="https://doi.org/10.1071/EG15039">10.1071/EG15039</a>.</p>
+<p>Carlos, D. U., L. Uieda, and V. C. F. Barbosa (2016), How two gravity-gradient
+inversion methods can be used to reveal different geologic features of ore
+deposit — A case study from the Quadrilátero Ferrífero (Brazil), Journal of
+Applied Geophysics, doi:<a class="reference external" href="https://doi.org/10.1016/j.jappgeo.2016.04.011">10.1016/j.jappgeo.2016.04.011</a>.
+[<a class="reference external" href="http://www.leouieda.com/pdf/paper-quadrilatero2-2016.pdf">pdf</a>]</p>
+<p>Reis, A. L. A., V. C. Oliveira, E. Yokoyama, A. C. Bruno, and J. M. B. Pereira
+(2016), Estimating the magnetization distribution within rectangular rock
+samples, Geochem. Geophys. Geosyst., 17(8), 3350-3374,
+doi:<a class="reference external" href="https://doi.org/10.1002/2016GC006329">10.1002/2016GC006329</a>.
+[<a class="reference external" href="http://www.pinga-lab.org/pdf/paper-magnetization-rock-sample-2016.pdf">pdf</a>]
+[<a class="reference external" href="https://github.com/pinga-lab/magnetization-rock-sample">code</a>]</p>
+<p>Hidalgo-Gato, M., and V. Barbosa (2015), Edge detection of potential-field
+sources using scale-space monogenic signal: Fundamental principles, GEOPHYSICS,
+80(5), J27-J36, doi:<a class="reference external" href="https://doi.org/10.1190/geo2015-0025.1">10.1190/geo2015-0025.1</a>.
+[<a class="reference external" href="http://www.pinga-lab.org/pdf/paper-monogenic-2015.pdf">pdf</a>]</p>
+<p>Niccoli, M. (2015), Mapping and validating lineaments, The Leading Edge, 34(8),
+948-950, doi:<a class="reference external" href="https://doi.org/10.1190/tle34080948.1">10.1190/tle34080948.1</a>.
+[<a class="reference external" href="https://github.com/seg/tutorials-2015">code</a>]
+[<strong>Open Access</strong>]</p>
+<p>Oliveira Jr., V. C., D. P. Sales, V. C. F. Barbosa, and L. Uieda (2015),
+Estimation of the total magnetization direction of approximately spherical
+bodies, Nonlin. Processes Geophys., 22(2), 215-232,
+doi:<a class="reference external" href="https://doi.org/10.5194/npg-22-215-2015">10.5194/npg-22-215-2015</a>.
+[<a class="reference external" href="https://github.com/pinga-lab/Total-magnetization-of-spherical-bodies">code</a>]
+[<strong>Open Access</strong>]</p>
+<p>Carlos, D. U., L. Uieda, and V. C. F. Barbosa (2014), Imaging iron ore from the
+Quadrilátero Ferrífero (Brazil) using geophysical inversion and drill hole
+data, Ore Geology Reviews, 61, 268-285,
+doi:<a class="reference external" href="https://doi.org/10.1016/j.oregeorev.2014.02.011">10.1016/j.oregeorev.2014.02.011</a>.
+[<a class="reference external" href="http://www.leouieda.com/pdf/paper-quadrilatero-2014.pdf">pdf</a>]</p>
+<p>Uieda, L., V. C. Oliveira Jr., and V. C. F. Barbosa (2014), Geophysical
+tutorial: Euler deconvolution of potential-field data, The Leading Edge, 33(4),
+448-450, doi:<a class="reference external" href="https://doi.org/10.1190/tle33040448.1">10.1190/tle33040448.1</a>.
+[<a class="reference external" href="https://github.com/pinga-lab/paper-tle-euler-tutorial">code</a>]
+[<strong>Open Access</strong>]</p>
+<p>Uieda, L., and V. C. F. Barbosa (2012), Robust 3D gravity gradient inversion by
+planting anomalous densities, Geophysics, 77(4), G55-G66,
+doi:<a class="reference external" href="https://doi.org/10.1190/geo2011-0388.1">10.1190/geo2011-0388.1</a>.
+[<a class="reference external" href="http://www.leouieda.com/pdf/paper-planting-anomalous-densities-2012.pdf">pdf</a>]
+[<a class="reference external" href="https://github.com/pinga-lab/paper-planting-densities">code</a>]</p>
+</div>
+<div class="section" id="teaching-material">
+<h2>Teaching Material<a class="headerlink" href="#teaching-material" title="Permalink to this headline">¶</a></h2>
+<p>Geofísica 2: Sismologia e sísmica. Leonardo Uieda. Taught at
+Universidade do Estado do Rio de Janeiro. Course material:
+<a class="reference external" href="https://github.com/leouieda/geofisica2">https://github.com/leouieda/geofisica2</a></p>
+<p>Geofísica 1: Gravimetria e magnetometria. Leonardo Uieda. Taught at
+Universidade do Estado do Rio de Janeiro. Course material:
+<a class="reference external" href="https://github.com/leouieda/geofisica1">https://github.com/leouieda/geofisica1</a></p>
+<p>Python para Ciências da Terra (IAG/USP). Marcelo Bianchi, Victor Sacek, and
+Leonardo Uieda. Taught at Universidade de São Paulo. Course material:
+<a class="reference external" href="https://github.com/leouieda/verao2016">https://github.com/leouieda/verao2016</a></p>
+<p>Tópicos de inversão em geofísica (UNB). Leonardo Uieda. Taught at Universidade
+de Brasília.
+Course material: <a class="reference external" href="https://github.com/pinga-lab/inversao-unb-2014">https://github.com/pinga-lab/inversao-unb-2014</a></p>
+<p>Tópicos de inversão em geofísica (IAG/USP). Vanderlei C. Oliveira Jr and
+Leonardo Uieda. Taught at Universidade de São Paulo.
+Course material: <a class="reference external" href="https://github.com/pinga-lab/inversao-iag-2012">https://github.com/pinga-lab/inversao-iag-2012</a></p>
+</div>
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="_sources/use_cases.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

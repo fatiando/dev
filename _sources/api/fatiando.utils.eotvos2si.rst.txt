@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.eotvos2si
+============================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: eotvos2si

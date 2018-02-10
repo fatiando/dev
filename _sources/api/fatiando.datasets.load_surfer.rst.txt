@@ -1,0 +1,6 @@
+:mod:`fatiando.datasets`.load_surfer
+=================================================
+
+.. currentmodule:: fatiando.datasets
+
+.. autofunction:: load_surfer

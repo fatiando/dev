@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.si2nt
+========================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: si2nt

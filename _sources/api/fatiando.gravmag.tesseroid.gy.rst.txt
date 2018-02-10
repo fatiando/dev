@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.tesseroid`.gy
+=================================================
+
+.. currentmodule:: fatiando.gravmag.tesseroid
+
+.. autofunction:: gy

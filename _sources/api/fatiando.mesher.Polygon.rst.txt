@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.Polygon
+=====================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: Polygon
+    :members:
+    :inherited-members:

@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fatiando a Terra: modeling and inversion &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Announcements" href="news.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="#">
+            
+                <img src="_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="install.html">Install</a></li>
+                    <li><a href="gallery/index.html">Gallery</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="docs.html">Docs</a></li>
+                    <li><a href="develop.html">Contribute</a></li>
+                    <li><a href="cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container-fluid banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-3 col-xs-1">
+            </div>
+            <div class="col-lg-4 col-sm-6 col-xs-10">
+                <img class="banner-logo center-block" src="_static/fatiando-logo-no-background.png">
+            </div>
+            <div class="col-lg-4 col-sm-3 col-xs-1">
+            </div>
+        </div>
+
+        <div class="row site-title">
+            <div class="col-lg-3 col-sm-2">
+            </div>
+            <div class="col-lg-6 col-sm-8">
+                <img src="_static/fatiando-banner.png" width="100%">
+            </div>
+            <div class="col-lg-3 col-sm-2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <p class="text-center site-slogan">
+                Open-source Python library for modeling and inversion in geophysics.
+                </p>
+
+                <p class="text-center site-description">
+                Our goal is provide a comprehensive and extensible framework
+                for geophysical data analysis and the development of new
+                methodologies.
+                </p>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+</div><div class="container-fluid home-warning text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <h3>Disclaimer</h3>
+                <p>
+                Fatiando is under active development and we are still
+                changing the
+                <a href="/api.html">API</a> between releases.
+                Names will change and functions will move as we improve our
+                design.
+                You might have to update your scripts and notebooks to get
+                the <a href="/changelog.html">latest features</a>.
+                <br>
+                Please bear with us.
+                </p>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+</div><div class="container">
+<div class="row">
+<div class="col-md-1">
+</div>
+<div class="col-md-10"><div class="home-row">
+
+    <h2>Overview</h2>
+
+    <div class="row">
+        <div class="col-md-6 home-overview">
+            <h3><a href="api.html#module-fatiando.gravmag">Gravity and magnetics</a></h3>
+            <p>
+            Modeling, inversion, and processing for potential field methods.
+            </p>
+            <em>
+            3D forward modeling with prisms,
+            polygonal prisms, spheres, and tesseroids.
+            Handles the potential, acceleration,
+            gradient tensor, magnetic induction, total field magnetic anomaly.
+            </em>
+        </div>
+        <div class="col-md-6 home-overview">
+            <h3><a href="api.html#module-fatiando.seismic">Seismology and seismics</a></h3>
+            <p>
+            Simple modeling functions for seismics and seismology.
+            </p>
+            <em>
+            Toy problems for: Cartesian straight-ray tomography,
+            VSP, epicenter estimation.
+            Experimental finite-difference wave propagation.
+            </em>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 home-overview">
+            <h3><a href="api.html#module-fatiando.gridder">Grid generation and manipulation</a></h3>
+            <p>
+            Functions for generating and operating on regular grids and data
+            that is on a map.
+            </p>
+            <em>
+            Generate regular grids and point scatters.
+            Cut grids and extract profiles.
+            Interpolate irregular data.
+            </em>
+        </div>
+        <div class="col-md-6 home-overview">
+            <h3><a href="api.html#module-fatiando.mesher">Geometric objects and meshes</a></h3>
+            <p>
+            Classes that represent geometric objects (points, prisms, polygons,
+            tesseroids) and meshes (regular prism mesh, points on a grid).
+            </p>
+            <em>
+            Standard classes used in all of Fatiando.
+            Efficient classes for meshes that save storage and behave as
+            <a href="https://docs.python.org/2/library/stdtypes.html#iterator-types">iterators</a>.
+            </em>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 home-overview">
+            <h3><a href="api.html#module-fatiando.datasets">Datasets and I/O</a></h3>
+            <p>
+            Experiment with our packaged test datasets or load your data
+            with some of our functions for input and output.
+            </p>
+            <em>
+            Test gravity and magnetic data, load data from Surfer ASCII
+            grids, generate data and models from images.
+            </em>
+        </div>
+        <div class="col-md-6 home-overview">
+            <h3><a href="api.html#module-fatiando.inversion">Inverse problems</a></h3>
+            <p>
+            Build your own inversions by implementing the bare minimum. We
+            provide standard regularization and optimization.
+            </p>
+            <em>
+            Classes for least-squares problems, Tikhonov regularization,
+            gradient-descent optimization, and more.
+            </em>
+        </div>
+    </div>
+
+</div><div class="home-row">
+
+    <h2>Get started</h2><p>See the <a class="reference internal" href="install.html#install"><span class="std std-ref">install instructions</span></a> to set up your computer and
+install Fatiando.</p>
+<p>Once you have everything installed,
+take a look at the <a class="reference internal" href="docs.html#docs"><span class="std std-ref">Documentation</span></a>
+for a detailed tour of the library.
+You can also browse the <a class="reference internal" href="gallery/index.html#gallery"><span class="std std-ref">Gallery</span></a> and <a class="reference internal" href="cookbook.html#cookbook"><span class="std std-ref">Cookbook</span></a>
+for examples of what Fatiando can do.</p>
+<p>Want more inspiration? Check out how Fatiando is being used in the
+<a class="reference internal" href="use_cases.html#use-cases"><span class="std std-ref">Use cases</span></a> page.</p>
+<p><strong>Stay informed</strong>: Sign up to our <a class="reference external" href="https://groups.google.com/d/forum/fatiando">mailing list</a> to keep up-to-date with new
+releases and events and give your feedback.</p>
+</div><div class="home-row">
+
+    <h2>Get help</h2><p>There are many ways to contact us:</p>
+<ul class="simple">
+<li>Write to our <a class="reference external" href="https://groups.google.com/d/forum/fatiando">mailing list</a>.</li>
+<li>Join us on our open <a class="reference external" href="https://gitter.im/fatiando/fatiando">Gitter chat room</a>.</li>
+<li>Report bugs through <a class="reference external" href="https://github.com/fatiando/fatiando/issues?q=is%3Aopen">Github</a>.</li>
+</ul>
+<p>If you come across a bug, please include in your message: your operating
+system, Python version, Fatiando version, code that generated the error, the
+full error message.</p>
+</div><div class="home-row">
+
+    <h2>Contribute</h2><p><strong>Feedback</strong>: Send us your bug reports, feature requests, spelling corrections,
+usage examples, etc. We love to hear what the community thinks!</p>
+<p><strong>Documentation</strong>: We need a lot of help improving our documentation. You can
+report typos, suggest new sections and improvements, and anything that you
+think would make the docs better in any way.</p>
+<p><strong>Code</strong>: If you  want to get involved with the code,
+take a look at our <a class="reference internal" href="develop.html#develop"><span class="std std-ref">Developer Guide</span></a>.
+All source code development is done in the open on the Github repository
+<a class="reference external" href="https://github.com/fatiando/fatiando">fatiando/fatiando</a>.
+A good place to start is with our <a class="reference external" href="https://github.com/fatiando/fatiando/issues?q=is%3Aissue+is%3Aopen+label%3A%22low-hanging+fruit%22">curated list of low-hanging fruit</a>.</p>
+<p>If you want to help but are not sure how, ask on the <a class="reference external" href="https://gitter.im/fatiando/fatiando">Gitter chat room</a> and
+we’ll help you get started.
+<strong>Don’t be afraid to ask for help!</strong></p>
+</div><div class="home-row">
+
+    <h2>Support</h2><p>Fatiando is research software <strong>made by scientists</strong>.
+Your citations help us justify the effort that goes into building and
+maintaining Fatiando.</p>
+<p><strong>TL;DR</strong>: If you just want to copy and paste something, include the following
+in your Methods or Acknowledgments:</p>
+<blockquote>
+<div>The results presented here were obtained with the help of the open-source
+software Fatiando a Terra by Uieda et al. (2013).</div></blockquote>
+<p>and the reference:</p>
+<blockquote>
+<div>Uieda, L., V. C. Oliveira Jr, and V. C. F. Barbosa (2013), Modeling the
+Earth with Fatiando a Terra, Proceedings of the 12th Python in Science
+Conference, pp. 91 - 98.</div></blockquote>
+<p>See <a class="reference internal" href="cite.html#cite"><span class="std std-ref">Citing</span></a> for more details on how to cite Fatiando in your
+publications.</p>
+</div><div class="home-row">
+
+    <h2>Watch</h2>
+
+<div class="text-center"><p>Watch an introduction to what Fatiando is all about in this presentation from
+<a class="reference external" href="http://www.leouieda.com/talks/scipy2013.html">Scipy 2013</a>.</p>
+</div>
+
+<div class="row home-row-video">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/Ec38h1oB8cc"
+                    frameborder="0"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div></div></div>  <!-- col -->
+<div class="col-md-1">
+</div>
+</div>  <!-- row -->
+</div>  <!-- container --><div class="toctree-wrapper compound">
+</div>
+
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="_sources/index.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

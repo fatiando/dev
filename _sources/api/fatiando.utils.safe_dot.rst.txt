@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.safe_dot
+===========================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: safe_dot

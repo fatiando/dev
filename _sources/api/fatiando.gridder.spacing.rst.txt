@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.spacing
+============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: spacing

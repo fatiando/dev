@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.Square
+====================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: Square
+    :members:
+    :inherited-members:

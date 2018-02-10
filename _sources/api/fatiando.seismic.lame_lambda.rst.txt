@@ -1,0 +1,6 @@
+:mod:`fatiando.seismic`.lame_lambda
+================================================
+
+.. currentmodule:: fatiando.seismic
+
+.. autofunction:: lame_lambda

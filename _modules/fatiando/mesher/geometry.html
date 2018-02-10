@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fatiando.mesher.geometry &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../../../index.html">
+            
+                <img src="../../../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../../../install.html">Install</a></li>
+                    <li><a href="../../../gallery/index.html">Gallery</a></li>
+                    <li><a href="../../../api.html">API</a></li>
+                    <li><a href="../../../docs.html">Docs</a></li>
+                    <li><a href="../../../develop.html">Contribute</a></li>
+                    <li><a href="../../../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../../../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+                <div class="col-md-12 content">
+                    <h1>Source code for fatiando.mesher.geometry</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Defines geometric primitives like prisms, spheres, etc.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">future.builtins</span> <span class="k">import</span> <span class="nb">object</span><span class="p">,</span> <span class="nb">super</span>
+<span class="kn">import</span> <span class="nn">copy</span> <span class="k">as</span> <span class="nn">cp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">class</span> <span class="nc">GeometricElement</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for all geometric elements.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">props</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">props</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">props</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">props</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">props</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">addprop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a physical property to this geometric element.</span>
+
+<span class="sd">        If it already has the property, the given value will overwrite the</span>
+<span class="sd">        existing one.</span>
+
+<span class="sd">        Parameters:</span>
+
+<span class="sd">        * prop : str</span>
+<span class="sd">            Name of the physical property.</span>
+<span class="sd">        * value : float</span>
+<span class="sd">            The value of this physical property.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Return a deep copy of the current instance.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">cp</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Polygon"><a class="viewcode-back" href="../../../api/fatiando.mesher.Polygon.html#fatiando.mesher.Polygon">[docs]</a><span class="k">class</span> <span class="nc">Polygon</span><span class="p">(</span><span class="n">GeometricElement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A polygon object (2D).</span>
+
+<span class="sd">    .. note:: Most applications require the vertices to be **clockwise**!</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * vertices : list of lists</span>
+<span class="sd">        List of [x, y] pairs with the coordinates of the vertices.</span>
+<span class="sd">    * props : dict</span>
+<span class="sd">        Physical properties assigned to the polygon.</span>
+<span class="sd">        Ex: ``props={&#39;density&#39;:10, &#39;susceptibility&#39;:10000}``</span>
+
+<span class="sd">    Examples::</span>
+
+<span class="sd">        &gt;&gt;&gt; poly = Polygon([[0, 0], [1, 4], [2, 5]], {&#39;density&#39;: 500})</span>
+<span class="sd">        &gt;&gt;&gt; poly.props</span>
+<span class="sd">        {&#39;density&#39;: 500}</span>
+<span class="sd">        &gt;&gt;&gt; poly.nverts</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; poly.vertices</span>
+<span class="sd">        array([[0, 0],</span>
+<span class="sd">               [1, 4],</span>
+<span class="sd">               [2, 5]])</span>
+<span class="sd">        &gt;&gt;&gt; poly.x</span>
+<span class="sd">        array([0, 1, 2])</span>
+<span class="sd">        &gt;&gt;&gt; poly.y</span>
+<span class="sd">        array([0, 4, 5])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vertices</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nverts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Square"><a class="viewcode-back" href="../../../api/fatiando.mesher.Square.html#fatiando.mesher.Square">[docs]</a><span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A square object (2D).</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * bounds : list = [x1, x2, y1, y2]</span>
+<span class="sd">        Coordinates of the top right and bottom left corners of the square</span>
+<span class="sd">    * props : dict</span>
+<span class="sd">        Physical properties assigned to the square.</span>
+<span class="sd">        Ex: ``props={&#39;density&#39;:10, &#39;slowness&#39;:10000}``</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt;&gt; sq = Square([0, 1, 2, 4], {&#39;density&#39;: 750})</span>
+<span class="sd">        &gt;&gt;&gt; sq.bounds</span>
+<span class="sd">        [0, 1, 2, 4]</span>
+<span class="sd">        &gt;&gt;&gt; sq.x1</span>
+<span class="sd">        0</span>
+<span class="sd">        &gt;&gt;&gt; sq.x2</span>
+<span class="sd">        1</span>
+<span class="sd">        &gt;&gt;&gt; sq.props</span>
+<span class="sd">        {&#39;density&#39;: 750}</span>
+<span class="sd">        &gt;&gt;&gt; sq.addprop(&#39;magnetization&#39;, 100)</span>
+<span class="sd">        &gt;&gt;&gt; sq.props[&#39;magnetization&#39;]</span>
+<span class="sd">        100</span>
+
+<span class="sd">    A square can be used as a :class:`~fatiando.mesher.Polygon`::</span>
+
+<span class="sd">        &gt;&gt;&gt; sq.vertices</span>
+<span class="sd">        array([[0, 2],</span>
+<span class="sd">               [1, 2],</span>
+<span class="sd">               [1, 4],</span>
+<span class="sd">               [0, 4]])</span>
+<span class="sd">        &gt;&gt;&gt; sq.x</span>
+<span class="sd">        array([0, 1, 1, 0])</span>
+<span class="sd">        &gt;&gt;&gt; sq.y</span>
+<span class="sd">        array([2, 2, 4, 4])</span>
+<span class="sd">        &gt;&gt;&gt; sq.nverts</span>
+<span class="sd">        4</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span> <span class="o">=</span> <span class="n">bounds</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The x, y boundaries of the square as [xmin, xmax, ymin, ymax]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The vertices of the square.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">verts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[[</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">],</span>
+             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">],</span>
+             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">],</span>
+             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">verts</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string representation of the square.&quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;y2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">)]</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">names</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Prism"><a class="viewcode-back" href="../../../api/fatiando.mesher.Prism.html#fatiando.mesher.Prism">[docs]</a><span class="k">class</span> <span class="nc">Prism</span><span class="p">(</span><span class="n">GeometricElement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A 3D right rectangular prism.</span>
+
+<span class="sd">    .. note:: The coordinate system used is x -&gt; North, y -&gt; East and z -&gt; Down</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * x1, x2 : float</span>
+<span class="sd">        South and north borders of the prism</span>
+<span class="sd">    * y1, y2 : float</span>
+<span class="sd">        West and east borders of the prism</span>
+<span class="sd">    * z1, z2 : float</span>
+<span class="sd">        Top and bottom of the prism</span>
+<span class="sd">    * props : dict</span>
+<span class="sd">        Physical properties assigned to the prism.</span>
+<span class="sd">        Ex: ``props={&#39;density&#39;:10, &#39;magnetization&#39;:10000}``</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">        &gt;&gt;&gt; from fatiando.mesher import Prism</span>
+<span class="sd">        &gt;&gt;&gt; p = Prism(1, 2, 3, 4, 5, 6, {&#39;density&#39;:200})</span>
+<span class="sd">        &gt;&gt;&gt; p.props[&#39;density&#39;]</span>
+<span class="sd">        200</span>
+<span class="sd">        &gt;&gt;&gt; print p.get_bounds()</span>
+<span class="sd">        [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]</span>
+<span class="sd">        &gt;&gt;&gt; print p</span>
+<span class="sd">        x1:1 | x2:2 | y1:3 | y2:4 | z1:5 | z2:6 | density:200</span>
+<span class="sd">        &gt;&gt;&gt; p = Prism(1, 2, 3, 4, 5, 6)</span>
+<span class="sd">        &gt;&gt;&gt; print p</span>
+<span class="sd">        x1:1 | x2:2 | y1:3 | y2:4 | z1:5 | z2:6</span>
+<span class="sd">        &gt;&gt;&gt; p.addprop(&#39;density&#39;, 2670)</span>
+<span class="sd">        &gt;&gt;&gt; print p</span>
+<span class="sd">        x1:1 | x2:2 | y1:3 | y2:4 | z1:5 | z2:6 | density:2670</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string representation of the prism.&quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;y2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z1&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z2&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">)]</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">names</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Prism.get_bounds"><a class="viewcode-back" href="../../../api/fatiando.mesher.Prism.html#fatiando.mesher.Prism.get_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the bounding box of the prism (i.e., the borders of the prism).</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * bounds : list</span>
+<span class="sd">            ``[x1, x2, y1, y2, z1, z2]``, the bounds of the prism</span>
+
+<span class="sd">        Examples:</span>
+
+<span class="sd">            &gt;&gt;&gt; p = Prism(1, 2, 3, 4, 5, 6)</span>
+<span class="sd">            &gt;&gt;&gt; print p.get_bounds()</span>
+<span class="sd">            [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Prism.center"><a class="viewcode-back" href="../../../api/fatiando.mesher.Prism.html#fatiando.mesher.Prism.center">[docs]</a>    <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the coordinates of the center of the prism.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * coords : list = [xc, yc, zc]</span>
+<span class="sd">            Coordinates of the center</span>
+
+<span class="sd">        Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; prism = Prism(1, 2, 1, 3, 0, 2)</span>
+<span class="sd">            &gt;&gt;&gt; print prism.center()</span>
+<span class="sd">            [ 1.5  2.   1. ]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x2</span><span class="p">)</span>
+        <span class="n">yc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y2</span><span class="p">)</span>
+        <span class="n">zc</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">z2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">zc</span><span class="p">])</span></div></div>
+
+
+<div class="viewcode-block" id="Tesseroid"><a class="viewcode-back" href="../../../api/fatiando.mesher.Tesseroid.html#fatiando.mesher.Tesseroid">[docs]</a><span class="k">class</span> <span class="nc">Tesseroid</span><span class="p">(</span><span class="n">GeometricElement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A tesseroid (spherical prism).</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * w, e : float</span>
+<span class="sd">        West and east borders of the tesseroid in decimal degrees</span>
+<span class="sd">    * s, n : float</span>
+<span class="sd">        South and north borders of the tesseroid in decimal degrees</span>
+<span class="sd">    * top, bottom : float</span>
+<span class="sd">        Bottom and top of the tesseroid with respect to the mean earth radius</span>
+<span class="sd">        in meters. Ex: if the top is 100 meters above the mean earth radius,</span>
+<span class="sd">        ``top=100``, if 100 meters below ``top=-100``.</span>
+<span class="sd">    * props : dict</span>
+<span class="sd">        Physical properties assigned to the tesseroid.</span>
+<span class="sd">        Ex: ``props={&#39;density&#39;:10, &#39;magnetization&#39;:10000}``</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">        &gt;&gt;&gt; from fatiando.mesher import Tesseroid</span>
+<span class="sd">        &gt;&gt;&gt; t = Tesseroid(1, 2, 3, 4, 6, 5, {&#39;density&#39;:200})</span>
+<span class="sd">        &gt;&gt;&gt; t.props[&#39;density&#39;]</span>
+<span class="sd">        200</span>
+<span class="sd">        &gt;&gt;&gt; print t.get_bounds()</span>
+<span class="sd">        [1.0, 2.0, 3.0, 4.0, 6.0, 5.0]</span>
+<span class="sd">        &gt;&gt;&gt; print t</span>
+<span class="sd">        w:1 | e:2 | s:3 | n:4 | top:6 | bottom:5 | density:200</span>
+<span class="sd">        &gt;&gt;&gt; t = Tesseroid(1, 2, 3, 4, 6, 5)</span>
+<span class="sd">        &gt;&gt;&gt; print t</span>
+<span class="sd">        w:1 | e:2 | s:3 | n:4 | top:6 | bottom:5</span>
+<span class="sd">        &gt;&gt;&gt; t.addprop(&#39;density&#39;, 2670)</span>
+<span class="sd">        &gt;&gt;&gt; print t</span>
+<span class="sd">        w:1 | e:2 | s:3 | n:4 | top:6 | bottom:5 | density:2670</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">e</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">bottom</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string representation of the tesseroid.&quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">e</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">)]</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">names</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Tesseroid.get_bounds"><a class="viewcode-back" href="../../../api/fatiando.mesher.Tesseroid.html#fatiando.mesher.Tesseroid.get_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">get_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the bounding box of the tesseroid (i.e., the borders).</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * bounds : list</span>
+<span class="sd">            ``[w, e, s, n, top, bottom]``, the bounds of the tesseroid</span>
+
+<span class="sd">        Examples:</span>
+
+<span class="sd">            &gt;&gt;&gt; t = Tesseroid(1, 2, 3, 4, 6, 5)</span>
+<span class="sd">            &gt;&gt;&gt; print t.get_bounds()</span>
+<span class="sd">            [1.0, 2.0, 3.0, 4.0, 6.0, 5.0]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Tesseroid.half"><a class="viewcode-back" href="../../../api/fatiando.mesher.Tesseroid.html#fatiando.mesher.Tesseroid.half">[docs]</a>    <span class="k">def</span> <span class="nf">half</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Divide the tesseroid in 2 halfs for each dimension (total 8)</span>
+
+<span class="sd">        The smaller tesseroids will share the large one&#39;s props.</span>
+
+<span class="sd">        Parameters:</span>
+
+<span class="sd">        * lon, lat, r : True or False</span>
+<span class="sd">            Dimensions along which the tesseroid will be split in half.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * tesseroids : list</span>
+<span class="sd">            A list of maximum 8 tesseroids that make up the larger one.</span>
+
+<span class="sd">        Examples::</span>
+
+<span class="sd">            &gt;&gt;&gt; tess = Tesseroid(-10, 10, -20, 20, 0, -40, {&#39;density&#39;:2})</span>
+<span class="sd">            &gt;&gt;&gt; split = tess.half()</span>
+<span class="sd">            &gt;&gt;&gt; print len(split)</span>
+<span class="sd">            8</span>
+<span class="sd">            &gt;&gt;&gt; for t in split:</span>
+<span class="sd">            ...     print t</span>
+<span class="sd">            w:-10 | e:0 | s:-20 | n:0 | top:-20 | bottom:-40 | density:2</span>
+<span class="sd">            w:-10 | e:0 | s:-20 | n:0 | top:0 | bottom:-20 | density:2</span>
+<span class="sd">            w:-10 | e:0 | s:0 | n:20 | top:-20 | bottom:-40 | density:2</span>
+<span class="sd">            w:-10 | e:0 | s:0 | n:20 | top:0 | bottom:-20 | density:2</span>
+<span class="sd">            w:0 | e:10 | s:-20 | n:0 | top:-20 | bottom:-40 | density:2</span>
+<span class="sd">            w:0 | e:10 | s:-20 | n:0 | top:0 | bottom:-20 | density:2</span>
+<span class="sd">            w:0 | e:10 | s:0 | n:20 | top:-20 | bottom:-40 | density:2</span>
+<span class="sd">            w:0 | e:10 | s:0 | n:20 | top:0 | bottom:-20 | density:2</span>
+<span class="sd">            &gt;&gt;&gt; tess = Tesseroid(-15, 15, -20, 20, 0, -40)</span>
+<span class="sd">            &gt;&gt;&gt; split = tess.half(lat=False)</span>
+<span class="sd">            &gt;&gt;&gt; print len(split)</span>
+<span class="sd">            4</span>
+<span class="sd">            &gt;&gt;&gt; for t in split:</span>
+<span class="sd">            ...     print t</span>
+<span class="sd">            w:-15 | e:0 | s:-20 | n:20 | top:-20 | bottom:-40</span>
+<span class="sd">            w:-15 | e:0 | s:-20 | n:20 | top:0 | bottom:-20</span>
+<span class="sd">            w:0 | e:15 | s:-20 | n:20 | top:-20 | bottom:-40</span>
+<span class="sd">            w:0 | e:15 | s:-20 | n:20 | top:0 | bottom:-20</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dlon</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">e</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">dlat</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">dh</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">)</span>
+        <span class="n">wests</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">+</span> <span class="n">dlon</span><span class="p">]</span>
+        <span class="n">souths</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">+</span> <span class="n">dlat</span><span class="p">]</span>
+        <span class="n">bottoms</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span> <span class="o">+</span> <span class="n">dh</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">lon</span><span class="p">:</span>
+            <span class="n">dlon</span> <span class="o">*=</span> <span class="mi">2</span>
+            <span class="n">wests</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">lat</span><span class="p">:</span>
+            <span class="n">dlat</span> <span class="o">*=</span> <span class="mi">2</span>
+            <span class="n">souths</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="p">:</span>
+            <span class="n">dh</span> <span class="o">*=</span> <span class="mi">2</span>
+            <span class="n">bottoms</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Tesseroid</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">dlon</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="n">dlat</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="n">dh</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">wests</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">souths</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">bottoms</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">split</span></div>
+
+<div class="viewcode-block" id="Tesseroid.split"><a class="viewcode-back" href="../../../api/fatiando.mesher.Tesseroid.html#fatiando.mesher.Tesseroid.split">[docs]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nlon</span><span class="p">,</span> <span class="n">nlat</span><span class="p">,</span> <span class="n">nh</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split the tesseroid into smaller ones.</span>
+
+<span class="sd">        The smaller tesseroids will share the large one&#39;s props.</span>
+
+<span class="sd">        Parameters:</span>
+
+<span class="sd">        * nlon, nlat, nh : int</span>
+<span class="sd">            The number of sections to split in the longitudinal, latitudinal,</span>
+<span class="sd">            and vertical dimensions</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * tesseroids : list</span>
+<span class="sd">            A list of nlon*nlat*nh tesseroids that make up the larger one.</span>
+
+
+<span class="sd">        Examples::</span>
+
+<span class="sd">            &gt;&gt;&gt; tess = Tesseroid(-10, 10, -20, 20, 0, -40, {&#39;density&#39;:2})</span>
+<span class="sd">            &gt;&gt;&gt; split = tess.split(1, 2, 2)</span>
+<span class="sd">            &gt;&gt;&gt; print len(split)</span>
+<span class="sd">            4</span>
+<span class="sd">            &gt;&gt;&gt; for t in split:</span>
+<span class="sd">            ...     print t</span>
+<span class="sd">            w:-10 | e:10 | s:-20 | n:0 | top:-20 | bottom:-40 | density:2</span>
+<span class="sd">            w:-10 | e:10 | s:-20 | n:0 | top:0 | bottom:-20 | density:2</span>
+<span class="sd">            w:-10 | e:10 | s:0 | n:20 | top:-20 | bottom:-40 | density:2</span>
+<span class="sd">            w:-10 | e:10 | s:0 | n:20 | top:0 | bottom:-20 | density:2</span>
+<span class="sd">            &gt;&gt;&gt; tess = Tesseroid(-15, 15, -20, 20, 0, -40)</span>
+<span class="sd">            &gt;&gt;&gt; split = tess.split(3, 1, 1)</span>
+<span class="sd">            &gt;&gt;&gt; print len(split)</span>
+<span class="sd">            3</span>
+<span class="sd">            &gt;&gt;&gt; for t in split:</span>
+<span class="sd">            ...     print t</span>
+<span class="sd">            w:-15 | e:-5 | s:-20 | n:20 | top:0 | bottom:-40</span>
+<span class="sd">            w:-5 | e:5 | s:-20 | n:20 | top:0 | bottom:-40</span>
+<span class="sd">            w:5 | e:15 | s:-20 | n:20 | top:0 | bottom:-40</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">nlon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">souths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">nlat</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">bottoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="n">nh</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">dlon</span> <span class="o">=</span> <span class="n">wests</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">wests</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">dlat</span> <span class="o">=</span> <span class="n">souths</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">souths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">dh</span> <span class="o">=</span> <span class="n">bottoms</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bottoms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">tesseroids</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Tesseroid</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">dlon</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="n">dlat</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="n">dh</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">wests</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">souths</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">bottoms</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">tesseroids</span></div></div>
+
+
+<div class="viewcode-block" id="Sphere"><a class="viewcode-back" href="../../../api/fatiando.mesher.Sphere.html#fatiando.mesher.Sphere">[docs]</a><span class="k">class</span> <span class="nc">Sphere</span><span class="p">(</span><span class="n">GeometricElement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A sphere.</span>
+
+<span class="sd">    .. note:: The coordinate system used is x -&gt; North, y -&gt; East and z -&gt; Down</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * x, y, z : float</span>
+<span class="sd">        The coordinates of the center of the sphere</span>
+<span class="sd">    * radius : float</span>
+<span class="sd">        The radius of the sphere</span>
+<span class="sd">    * props : dict</span>
+<span class="sd">        Physical properties assigned to the prism.</span>
+<span class="sd">        Ex: ``props={&#39;density&#39;:10, &#39;magnetization&#39;:10000}``</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">        &gt;&gt;&gt; s = Sphere(1, 2, 3, 10, {&#39;magnetization&#39;:200})</span>
+<span class="sd">        &gt;&gt;&gt; s.props[&#39;magnetization&#39;]</span>
+<span class="sd">        200</span>
+<span class="sd">        &gt;&gt;&gt; s.addprop(&#39;density&#39;, 20)</span>
+<span class="sd">        &gt;&gt;&gt; print s.props[&#39;density&#39;]</span>
+<span class="sd">        20</span>
+<span class="sd">        &gt;&gt;&gt; print s</span>
+<span class="sd">        x:1 | y:2 | z:3 | radius:10 | density:20 | magnetization:200</span>
+<span class="sd">        &gt;&gt;&gt; s = Sphere(1, 2, 3, 4)</span>
+<span class="sd">        &gt;&gt;&gt; print s</span>
+<span class="sd">        x:1 | y:2 | z:3 | radius:4</span>
+<span class="sd">        &gt;&gt;&gt; s.addprop(&#39;density&#39;, 2670)</span>
+<span class="sd">        &gt;&gt;&gt; print s</span>
+<span class="sd">        x:1 | y:2 | z:3 | radius:4 | density:2670</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a string representation of the sphere.&quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">)]</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="n">p</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">:</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">names</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PolygonalPrism"><a class="viewcode-back" href="../../../api/fatiando.mesher.PolygonalPrism.html#fatiando.mesher.PolygonalPrism">[docs]</a><span class="k">class</span> <span class="nc">PolygonalPrism</span><span class="p">(</span><span class="n">GeometricElement</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A 3D prism with polygonal cross-section.</span>
+
+<span class="sd">    .. note:: The coordinate system used is x -&gt; North, y -&gt; East and z -&gt; Down</span>
+
+<span class="sd">    .. note:: *vertices* must be **CLOCKWISE** or will give inverse result.</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * vertices : list of lists</span>
+<span class="sd">        Coordinates of the vertices. A list of ``[x, y]`` pairs.</span>
+<span class="sd">    * z1, z2 : float</span>
+<span class="sd">        Top and bottom of the prism</span>
+<span class="sd">    * props :  dict</span>
+<span class="sd">        Physical properties assigned to the prism.</span>
+<span class="sd">        Ex: ``props={&#39;density&#39;:10, &#39;magnetization&#39;:10000}``</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">        &gt;&gt;&gt; verts = [[1, 1], [1, 2], [2, 2], [2, 1]]</span>
+<span class="sd">        &gt;&gt;&gt; p = PolygonalPrism(verts, 0, 3, props={&#39;temperature&#39;:25})</span>
+<span class="sd">        &gt;&gt;&gt; p.props[&#39;temperature&#39;]</span>
+<span class="sd">        25</span>
+<span class="sd">        &gt;&gt;&gt; print p.x</span>
+<span class="sd">        [ 1.  1.  2.  2.]</span>
+<span class="sd">        &gt;&gt;&gt; print p.y</span>
+<span class="sd">        [ 1.  2.  2.  1.]</span>
+<span class="sd">        &gt;&gt;&gt; print p.z1, p.z2</span>
+<span class="sd">        0.0 3.0</span>
+<span class="sd">        &gt;&gt;&gt; p.addprop(&#39;density&#39;, 2670)</span>
+<span class="sd">        &gt;&gt;&gt; print p.props[&#39;density&#39;]</span>
+<span class="sd">        2670</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">props</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">((</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vertices</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">((</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vertices</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nverts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PolygonalPrism.topolygon"><a class="viewcode-back" href="../../../api/fatiando.mesher.PolygonalPrism.html#fatiando.mesher.PolygonalPrism.topolygon">[docs]</a>    <span class="k">def</span> <span class="nf">topolygon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the polygon describing the prism viewed from above.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * polygon : :func:`fatiando.mesher.Polygon`</span>
+<span class="sd">            The polygon</span>
+
+<span class="sd">        Example:</span>
+
+<span class="sd">            &gt;&gt;&gt; verts = [[1, 1], [1, 2], [2, 2], [2, 1]]</span>
+<span class="sd">            &gt;&gt;&gt; p = PolygonalPrism(verts, 0, 100)</span>
+<span class="sd">            &gt;&gt;&gt; poly = p.topolygon()</span>
+<span class="sd">            &gt;&gt;&gt; print poly.x</span>
+<span class="sd">            [ 1.  1.  2.  2.]</span>
+<span class="sd">            &gt;&gt;&gt; print poly.y</span>
+<span class="sd">            [ 1.  2.  2.  1.]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">verts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">props</span><span class="p">)</span></div></div>
+</pre></div>
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

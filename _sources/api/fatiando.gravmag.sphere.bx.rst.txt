@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.sphere`.bx
+==============================================
+
+.. currentmodule:: fatiando.gravmag.sphere
+
+.. autofunction:: bx

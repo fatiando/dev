@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.safe_diagonal
+================================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: safe_diagonal

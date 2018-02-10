@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.polyprism`.bz
+=================================================
+
+.. currentmodule:: fatiando.gravmag.polyprism
+
+.. autofunction:: bz

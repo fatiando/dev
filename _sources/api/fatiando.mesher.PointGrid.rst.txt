@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.PointGrid
+=======================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: PointGrid
+    :members:
+    :inherited-members:

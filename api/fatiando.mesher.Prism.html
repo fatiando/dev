@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fatiando.mesher.Prism &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fatiando.mesher.PolygonalPrism" href="fatiando.mesher.PolygonalPrism.html" />
+    <link rel="prev" title="fatiando.mesher.Square" href="fatiando.mesher.Square.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../index.html">
+            
+                <img src="../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../install.html">Install</a></li>
+                    <li><a href="../gallery/index.html">Gallery</a></li>
+                    <li><a href="../api.html">API</a></li>
+                    <li><a href="../docs.html">Docs</a></li>
+                    <li><a href="../develop.html">Contribute</a></li>
+                    <li><a href="../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">fatiando.mesher</span></code>.Prism</a></li>
+</ul>
+
+        </div>
+      </div>
+                <div class="col-md-9 content">
+                    <div class="section" id="fatiando-mesher-prism">
+<h1><a class="reference internal" href="../api.html#module-fatiando.mesher" title="fatiando.mesher"><code class="xref py py-mod docutils literal"><span class="pre">fatiando.mesher</span></code></a>.Prism<a class="headerlink" href="#fatiando-mesher-prism" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="fatiando.mesher.Prism">
+<em class="property">class </em><code class="descclassname">fatiando.mesher.</code><code class="descname">Prism</code><span class="sig-paren">(</span><em>x1</em>, <em>x2</em>, <em>y1</em>, <em>y2</em>, <em>z1</em>, <em>z2</em>, <em>props=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fatiando/mesher/geometry.html#Prism"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatiando.mesher.Prism" title="Permalink to this definition">¶</a></dt>
+<dd><p>A 3D right rectangular prism.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The coordinate system used is x -&gt; North, y -&gt; East and z -&gt; Down</p>
+</div>
+<p>Parameters:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>x1, x2 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>South and north borders of the prism</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>y1, y2 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>West and east borders of the prism</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>z1, z2 <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Top and bottom of the prism</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>props <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>Physical properties assigned to the prism.
+Ex: <code class="docutils literal"><span class="pre">props={'density':10,</span> <span class="pre">'magnetization':10000}</span></code></dd>
+</dl>
+</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fatiando.mesher</span> <span class="k">import</span> <span class="n">Prism</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Prism</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;density&#39;</span><span class="p">:</span><span class="mi">200</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">props</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span>
+<span class="go">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">p</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+<span class="go">[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">p</span>
+<span class="go">x1:1 | x2:2 | y1:3 | y2:4 | z1:5 | z2:6 | density:200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Prism</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">p</span>
+<span class="go">x1:1 | x2:2 | y1:3 | y2:4 | z1:5 | z2:6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">addprop</span><span class="p">(</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="mi">2670</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">p</span>
+<span class="go">x1:1 | x2:2 | y1:3 | y2:4 | z1:5 | z2:6 | density:2670</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="fatiando.mesher.Prism.addprop">
+<code class="descname">addprop</code><span class="sig-paren">(</span><em>prop</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#fatiando.mesher.Prism.addprop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a physical property to this geometric element.</p>
+<p>If it already has the property, the given value will overwrite the
+existing one.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>prop <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Name of the physical property.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>value <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>The value of this physical property.</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatiando.mesher.Prism.center">
+<code class="descname">center</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fatiando/mesher/geometry.html#Prism.center"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatiando.mesher.Prism.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coordinates of the center of the prism.</p>
+<p>Returns:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>coords <span class="classifier-delimiter">:</span> <span class="classifier">list = [xc, yc, zc]</span></dt>
+<dd>Coordinates of the center</dd>
+</dl>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prism</span> <span class="o">=</span> <span class="n">Prism</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">prism</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+<span class="go">[ 1.5  2.   1. ]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatiando.mesher.Prism.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fatiando.mesher.Prism.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a deep copy of the current instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fatiando.mesher.Prism.get_bounds">
+<code class="descname">get_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fatiando/mesher/geometry.html#Prism.get_bounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fatiando.mesher.Prism.get_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the bounding box of the prism (i.e., the borders of the prism).</p>
+<p>Returns:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>bounds <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><code class="docutils literal"><span class="pre">[x1,</span> <span class="pre">x2,</span> <span class="pre">y1,</span> <span class="pre">y2,</span> <span class="pre">z1,</span> <span class="pre">z2]</span></code>, the bounds of the prism</dd>
+</dl>
+</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Prism</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">p</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+<span class="go">[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+<div id="sourcelink">
+  <a href="../_sources/api/fatiando.mesher.Prism.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

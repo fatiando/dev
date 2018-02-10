@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.sphere`.gyy
+===============================================
+
+.. currentmodule:: fatiando.gravmag.sphere
+
+.. autofunction:: gyy

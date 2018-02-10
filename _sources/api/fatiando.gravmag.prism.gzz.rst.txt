@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.prism`.gzz
+==============================================
+
+.. currentmodule:: fatiando.gravmag.prism
+
+.. autofunction:: gzz

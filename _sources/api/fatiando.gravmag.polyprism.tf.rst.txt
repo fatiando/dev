@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.polyprism`.tf
+=================================================
+
+.. currentmodule:: fatiando.gravmag.polyprism
+
+.. autofunction:: tf

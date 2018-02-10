@@ -1,0 +1,6 @@
+:mod:`fatiando.utils`.sph2cart
+===========================================
+
+.. currentmodule:: fatiando.utils
+
+.. autofunction:: sph2cart

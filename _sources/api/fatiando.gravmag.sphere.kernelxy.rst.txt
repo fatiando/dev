@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.sphere`.kernelxy
+====================================================
+
+.. currentmodule:: fatiando.gravmag.sphere
+
+.. autofunction:: kernelxy

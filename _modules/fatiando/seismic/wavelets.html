@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fatiando.seismic.wavelets &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../../../index.html">
+            
+                <img src="../../../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../../../install.html">Install</a></li>
+                    <li><a href="../../../gallery/index.html">Gallery</a></li>
+                    <li><a href="../../../api.html">API</a></li>
+                    <li><a href="../../../docs.html">Docs</a></li>
+                    <li><a href="../../../develop.html">Contribute</a></li>
+                    <li><a href="../../../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../../../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+                <div class="col-md-12 content">
+                    <h1>Source code for fatiando.seismic.wavelets</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Classes to evaluate and sample wavelets.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">future.builtins</span> <span class="k">import</span> <span class="nb">super</span><span class="p">,</span> <span class="nb">object</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">class</span> <span class="nc">BaseWavelet</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for wavelets.</span>
+
+<span class="sd">    Implements the ``sample`` method to extract samples with a given sampling</span>
+<span class="sd">    rate.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amp</span> <span class="o">=</span> <span class="n">amp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="n">delay</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a deep copy of the wavelet.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sample the wavelet with the given sampling interval and duration.</span>
+
+<span class="sd">        Parameters:</span>
+
+<span class="sd">        * dt : float</span>
+<span class="sd">            The sampling interval.</span>
+<span class="sd">        * duration : float or ``None``</span>
+<span class="sd">            The time duration of the sampling. If not ``None`` will use twice</span>
+<span class="sd">            the *delay* attribute.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * samples : 1d-array</span>
+<span class="sd">            An array of sample values of the wavelet.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">duration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">duration</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">delay</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">samples</span>
+
+
+<div class="viewcode-block" id="RickerWavelet"><a class="viewcode-back" href="../../../api/fatiando.seismic.RickerWavelet.html#fatiando.seismic.RickerWavelet">[docs]</a><span class="k">class</span> <span class="nc">RickerWavelet</span><span class="p">(</span><span class="n">BaseWavelet</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Ricker (mexican hat) wavelet.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        w(t) = A \left(1 - 2(\pi f t)^2 \right)e^{-(\pi f t)^2}</span>
+
+<span class="sd">    This class can be called as a function to evaluate the wavelet at given</span>
+<span class="sd">    times. See the examples below.</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * f : float</span>
+<span class="sd">        The peak (or central) frequency of the wavelet (:math:`f`).</span>
+<span class="sd">    * amp : float</span>
+<span class="sd">        The amplitude of the wavelet (:math:`A`).</span>
+<span class="sd">    * delay : float or ``&#39;default&#39;``</span>
+<span class="sd">        A time delay to be applied to the wavelet function. If ``&#39;default&#39;``</span>
+<span class="sd">        will delay the wavelet by :math:`1/f` to guarantee that the wavelet</span>
+<span class="sd">        starts approximately after time 0.</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    &gt;&gt;&gt; w1 = RickerWavelet(f=2)</span>
+<span class="sd">    &gt;&gt;&gt; times = np.linspace(0, 1, 7)</span>
+<span class="sd">    &gt;&gt;&gt; # The wavelet class can be called as function of time</span>
+<span class="sd">    &gt;&gt;&gt; values = w1(times)</span>
+<span class="sd">    &gt;&gt;&gt; # which gives the wavelet values at those times</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;[{}]&#39;.format(&#39; &#39;.join([&#39;{:.3f}&#39;.format(v) for v in values])))</span>
+<span class="sd">    [-0.001 -0.097 -0.399 1.000 -0.399 -0.097 -0.001]</span>
+<span class="sd">    &gt;&gt;&gt; # Notice that the wavelet is symmetric around the 1 amplitude value</span>
+
+<span class="sd">    &gt;&gt;&gt; # We can control the delay. 0 will make the peak amplitude at t=0.</span>
+<span class="sd">    &gt;&gt;&gt; w2 = RickerWavelet(f=1, delay=0)</span>
+<span class="sd">    &gt;&gt;&gt; values = w2(times)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;[{}]&#39;.format(&#39; &#39;.join([&#39;{:.3f}&#39;.format(v) for v in values])))</span>
+<span class="sd">    [1.000 0.343 -0.399 -0.334 -0.097 -0.013 -0.001]</span>
+
+<span class="sd">    &gt;&gt;&gt; # We can also control the amplitude of the wavelet</span>
+<span class="sd">    &gt;&gt;&gt; w3 = RickerWavelet(f=2, amp=-0.5)</span>
+<span class="sd">    &gt;&gt;&gt; values = w3(times)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;[{}]&#39;.format(&#39; &#39;.join([&#39;{:.3f}&#39;.format(v) for v in values])))</span>
+<span class="sd">    [0.000 0.048 0.199 -0.500 0.199 0.048 0.000]</span>
+
+<span class="sd">    &gt;&gt;&gt; # Use the &#39;sample&#39; method to extract samples at a given time interval</span>
+<span class="sd">    &gt;&gt;&gt; w4 = RickerWavelet(f=5, amp=10)</span>
+<span class="sd">    &gt;&gt;&gt; samples = w4.sample(dt=0.05)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;[{}]&#39;.format(&#39; &#39;.join([&#39;{:.3f}&#39;.format(v) for v in samples])))</span>
+<span class="sd">    [-0.010 -0.392 -3.337 -1.261 10.000 -1.261 -3.337 -0.392]</span>
+<span class="sd">    &gt;&gt;&gt; # Notice that the end point is not included because &#39;sample&#39; uses</span>
+<span class="sd">    &gt;&gt;&gt; # numpy.arange.</span>
+<span class="sd">    &gt;&gt;&gt; # The default duration of the sampling is usually enough to get the</span>
+<span class="sd">    &gt;&gt;&gt; # whole wavelet but you can control this if you want.</span>
+<span class="sd">    &gt;&gt;&gt; samples = w4.sample(dt=0.05, duration=0.25)</span>
+<span class="sd">    &gt;&gt;&gt; print(&#39;[{}]&#39;.format(&#39; &#39;.join([&#39;{:.3f}&#39;.format(v) for v in samples])))</span>
+<span class="sd">    [-0.010 -0.392 -3.337 -1.261 10.000]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">amp</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">f</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Frequency must be &gt;= 0.&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">==</span> <span class="s1">&#39;default&#39;</span><span class="p">:</span>
+            <span class="c1"># Standard delay to make the wavelet start at time zero and be</span>
+            <span class="c1"># causal. A good approximation for the this is the time interval</span>
+            <span class="c1"># between the two side lobes of the wavelet.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the wavelet function at a given time.</span>
+
+<span class="sd">        Parameters:</span>
+
+<span class="sd">        * time : int, float or array</span>
+<span class="sd">            The time(s) at which to evaluate the wavelet.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * wavelet : int, float or array</span>
+<span class="sd">            The wavelet function values at the given time(s).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">delay</span>
+        <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">aux</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">aux</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">amp</span><span class="o">*</span><span class="n">res</span></div>
+</pre></div>
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

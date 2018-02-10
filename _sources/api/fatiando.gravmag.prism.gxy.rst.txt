@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.prism`.gxy
+==============================================
+
+.. currentmodule:: fatiando.gravmag.prism
+
+.. autofunction:: gxy

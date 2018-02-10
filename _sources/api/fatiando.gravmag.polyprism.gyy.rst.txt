@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.polyprism`.gyy
+==================================================
+
+.. currentmodule:: fatiando.gravmag.polyprism
+
+.. autofunction:: gyy

@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.prism`.potential
+====================================================
+
+.. currentmodule:: fatiando.gravmag.prism
+
+.. autofunction:: potential

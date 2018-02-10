@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.regular
+============================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: regular

@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.PolygonalPrism
+============================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: PolygonalPrism
+    :members:
+    :inherited-members:

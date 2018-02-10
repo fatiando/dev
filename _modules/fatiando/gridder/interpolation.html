@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fatiando.gridder.interpolation &#8212; Fatiando dev</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/font-awesome/css/font-awesome.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     'ac2afbcb2d99b18f145cc1ed40075beb5f92dd5a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta name="twitter:site" content="@leouieda">
+    <meta name="twitter:title" content="Fatiando a Terra">
+    <meta name="twitter:description" content="Open-source Python library for geophysics">
+
+    <meta property="og:title" content="Fatiando a Terra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.fatiando.org/">
+    <meta property="og:site_name" content="Fatiando a Terra">
+    <meta property="og:image" content="http://www.fatiando.org/_static/fatiando-logo.png">
+    <meta property="og:description" content="Open-source Python library for geophysics">
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38125837-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+
+  </head>
+  <body>
+
+    
+        <div class="container-fluid" style="margin: 0px; padding: 0px;">
+            <div class="alert alert-dismissible alert-warning text-center dev-version-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                This page reflects the <strong>development version</strong>
+                (<a href="https://github.com/fatiando/fatiando"><em>master</em> branch
+                  on Github</a>).
+                Go to <a href="http://www.fatiando.org">fatiando.org</a> for the latest
+                release.
+            </div>
+        </div>
+    
+
+    
+
+
+    
+<div class="container-fluid menu text-center">
+    <div class="col-lg-3 menu-brand">
+        <a class="" href="../../../index.html">
+            
+                <img src="../../../_static/fatiando-navbar-logo.png">
+            
+            
+                fatiando
+            
+        </a>
+        <span class="menu-version">dev</span>
+    </div>
+    <div class="col-lg-6 menu-list">
+        <ul>
+            
+                    <li><a href="../../../install.html">Install</a></li>
+                    <li><a href="../../../gallery/index.html">Gallery</a></li>
+                    <li><a href="../../../api.html">API</a></li>
+                    <li><a href="../../../docs.html">Docs</a></li>
+                    <li><a href="../../../develop.html">Contribute</a></li>
+                    <li><a href="../../../cite.html">Cite</a></li>
+                    <li><a href="https://github.com/fatiando/fatiando"><i class="fa fa-github fa-lg" title="Source code on Github"></i></a></li>
+            
+        </ul>
+    </div>
+    <div class="col-lg-3 menu-search">
+        
+            
+<form class="navbar-form" action="../../../search.html" method="get">
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search" />
+    </div>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+</form>
+        
+    </div>
+</div>
+
+
+    
+
+        <div class="container page-container">
+            <div class="row">
+                
+                <div class="col-md-12 content">
+                    <h1>Source code for fatiando.gridder.interpolation</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">2D interpolation, griding, and profile extraction.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.interpolate</span>
+
+<span class="kn">from</span> <span class="nn">.point_generation</span> <span class="k">import</span> <span class="n">regular</span>
+
+
+<span class="k">def</span> <span class="nf">fill_nans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">vp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">    Fill in the NaNs or masked values on interpolated points using nearest</span>
+<span class="sd">    neighbors.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        Operation is performed in place. Replaces the NaN or masked values of</span>
+<span class="sd">        the original array!</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * x, y : 1D arrays</span>
+<span class="sd">        Arrays with the x and y coordinates of the original data points (not</span>
+<span class="sd">        interpolated).</span>
+<span class="sd">    * v : 1D array</span>
+<span class="sd">        Array with the scalar value assigned to the data points (not</span>
+<span class="sd">        interpolated).</span>
+<span class="sd">    * xp, yp : 1D arrays</span>
+<span class="sd">        Points where the data values were interpolated.</span>
+<span class="sd">    * vp : 1D array</span>
+<span class="sd">        Interpolated data values (the one that has NaNs or masked values to</span>
+<span class="sd">        replace).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">is_masked</span><span class="p">(</span><span class="n">vp</span><span class="p">):</span>
+        <span class="n">nans</span> <span class="o">=</span> <span class="n">vp</span><span class="o">.</span><span class="n">mask</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">nans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">vp</span><span class="p">)</span>
+    <span class="n">vp</span><span class="p">[</span><span class="n">nans</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">griddata</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">xp</span><span class="p">[</span><span class="n">nans</span><span class="p">],</span> <span class="n">yp</span><span class="p">[</span><span class="n">nans</span><span class="p">]),</span>
+                                          <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="interp_at"><a class="viewcode-back" href="../../../api/fatiando.gridder.interp_at.html#fatiando.gridder.interp_at">[docs]</a><span class="k">def</span> <span class="nf">interp_at</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="n">extrapolate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interpolate spacial data onto specified points.</span>
+
+<span class="sd">    Wraps ``scipy.interpolate.griddata``.</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * x, y : 1D arrays</span>
+<span class="sd">        Arrays with the x and y coordinates of the data points.</span>
+<span class="sd">    * v : 1D array</span>
+<span class="sd">        Array with the scalar value assigned to the data points.</span>
+<span class="sd">    * xp, yp : 1D arrays</span>
+<span class="sd">        Points where the data values will be interpolated</span>
+<span class="sd">    * algorithm : string</span>
+<span class="sd">        Interpolation algorithm. Either ``&#39;cubic&#39;``, ``&#39;nearest&#39;``,</span>
+<span class="sd">        ``&#39;linear&#39;`` (see scipy.interpolate.griddata)</span>
+<span class="sd">    * extrapolate : True or False</span>
+<span class="sd">        If True, will extrapolate values outside of the convex hull of the data</span>
+<span class="sd">        points.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">    * v : 1D array</span>
+<span class="sd">        1D array with the interpolated v values.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">griddata</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">),</span>
+                                    <span class="n">method</span><span class="o">=</span><span class="n">algorithm</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">extrapolate</span> <span class="ow">and</span> <span class="n">algorithm</span> <span class="o">!=</span> <span class="s1">&#39;nearest&#39;</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">vp</span><span class="p">)):</span>
+        <span class="n">fill_nans</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">vp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vp</span></div>
+
+
+<div class="viewcode-block" id="interp"><a class="viewcode-back" href="../../../api/fatiando.gridder.interp.html#fatiando.gridder.interp">[docs]</a><span class="k">def</span> <span class="nf">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="n">extrapolate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interpolate spacial data onto a regular grid.</span>
+
+<span class="sd">    Utility function that generates a regular grid with</span>
+<span class="sd">    :func:`~fatiando.gridder.regular` and calls</span>
+<span class="sd">    :func:`~fatiando.gridder.interp_at` on the generated points.</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * x, y : 1D arrays</span>
+<span class="sd">        Arrays with the x and y coordinates of the data points.</span>
+<span class="sd">    * v : 1D array</span>
+<span class="sd">        Array with the scalar value assigned to the data points.</span>
+<span class="sd">    * shape : tuple = (nx, ny)</span>
+<span class="sd">        Shape of the interpolated regular grid, ie (nx, ny).</span>
+<span class="sd">    * area : tuple = (x1, x2, y1, y2)</span>
+<span class="sd">        The are where the data will be interpolated. If None, then will get the</span>
+<span class="sd">        area from *x* and *y*.</span>
+<span class="sd">    * algorithm : string</span>
+<span class="sd">        Interpolation algorithm. Either ``&#39;cubic&#39;``, ``&#39;nearest&#39;``,</span>
+<span class="sd">        ``&#39;linear&#39;`` (see scipy.interpolate.griddata).</span>
+<span class="sd">    * extrapolate : True or False</span>
+<span class="sd">        If True, will extrapolate values outside of the convex hull of the data</span>
+<span class="sd">        points.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">    * ``[x, y, v]``</span>
+<span class="sd">        Three 1D arrays with the interpolated x, y, and v</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">area</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">area</span>
+    <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span> <span class="o">=</span> <span class="n">regular</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">interp_at</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">algorithm</span><span class="p">,</span>
+                   <span class="n">extrapolate</span><span class="o">=</span><span class="n">extrapolate</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">vp</span></div>
+
+
+<div class="viewcode-block" id="profile"><a class="viewcode-back" href="../../../api/fatiando.gridder.profile.html#fatiando.gridder.profile">[docs]</a><span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract a profile between 2 points from spacial data.</span>
+
+<span class="sd">    Uses interpolation to calculate the data values at the profile points.</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">    * x, y : 1D arrays</span>
+<span class="sd">        Arrays with the x and y coordinates of the data points.</span>
+<span class="sd">    * v : 1D array</span>
+<span class="sd">        Array with the scalar value assigned to the data points.</span>
+<span class="sd">    * point1, point2 : lists = [x, y]</span>
+<span class="sd">        Lists the x, y coordinates of the 2 points between which the profile</span>
+<span class="sd">        will be extracted.</span>
+<span class="sd">    * size : int</span>
+<span class="sd">        Number of points along the profile.</span>
+<span class="sd">    * algorithm : string</span>
+<span class="sd">        Interpolation algorithm. Either ``&#39;cubic&#39;``, ``&#39;nearest&#39;``,</span>
+<span class="sd">        ``&#39;linear&#39;`` (see scipy.interpolate.griddata).</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">    * [xp, yp, distances, vp] : 1d arrays</span>
+<span class="sd">        ``xp`` and ``yp`` are the x, y coordinates of the points along the</span>
+<span class="sd">        profile. ``distances`` are the distances of the profile points from</span>
+<span class="sd">        ``point1``. ``vp`` are the data points along the profile.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">point1</span>
+    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">point2</span>
+    <span class="n">maxdist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxdist</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span>
+    <span class="n">xp</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">distances</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+    <span class="n">yp</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">distances</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">interp_at</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">algorithm</span><span class="p">,</span> <span class="n">extrapolate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">distances</span><span class="p">,</span> <span class="n">vp</span></div>
+</pre></div>
+                </div>
+                  
+            </div>
+        </div>
+
+    
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+                
+                    <br/>
+                    
+                
+            </p>
+
+            <p class="text-center">
+                &copy; Copyright 2010-2018, Leonardo Uieda.
+                Created using <a
+                    href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+            </p>
+        </div>
+    </footer>
+
+
+  </body>
+</html>

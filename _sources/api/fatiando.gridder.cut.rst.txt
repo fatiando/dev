@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.cut
+========================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: cut

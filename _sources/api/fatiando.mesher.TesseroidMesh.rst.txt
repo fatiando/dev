@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.TesseroidMesh
+===========================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: TesseroidMesh
+    :members:
+    :inherited-members:

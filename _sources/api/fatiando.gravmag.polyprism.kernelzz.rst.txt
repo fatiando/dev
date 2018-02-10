@@ -1,0 +1,6 @@
+:mod:`fatiando.gravmag.polyprism`.kernelzz
+=======================================================
+
+.. currentmodule:: fatiando.gravmag.polyprism
+
+.. autofunction:: kernelzz

@@ -1,0 +1,6 @@
+:mod:`fatiando.gridder`.inside
+===========================================
+
+.. currentmodule:: fatiando.gridder
+
+.. autofunction:: inside

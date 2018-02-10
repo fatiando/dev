@@ -1,0 +1,545 @@
+:orphan:
+
+.. _gallery:
+
+===============
+Example Gallery
+===============
+
+Click on any image below to see a full sized image and the code that generated
+it, with links to download the code as a Python ``.py`` script or as a
+`Jupyter <http://jupyter.org/>`_ (formerly IPython) notebook.
+
+.. note::
+
+    The Gallery is a work in progress. We need **your help** to make it
+    better! You can contribute by sending us your scripts for beautiful plots.
+    Write to the `mailing list <https://groups.google.com/d/forum/fatiando>`__
+    or send us a
+    `pull request on Github <https://github.com/fatiando/fatiando/pulls>`__.
+
+
+
+
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Datasets packaged with Fatiando
+-------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Function :func:`fatiando.datasets.from_image` allows us to create a model template from an imag...">
+
+.. only:: html
+
+    .. figure:: /gallery/datasets/images/thumb/sphx_glr_from_image_thumb.png
+
+        :ref:`sphx_glr_gallery_datasets_from_image.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/datasets/from_image
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.datasets` package includes some data sets to make it easier to try things ou...">
+
+.. only:: html
+
+    .. figure:: /gallery/datasets/images/thumb/sphx_glr_hawaii_gravity_thumb.png
+
+        :ref:`sphx_glr_gallery_datasets_hawaii_gravity.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/datasets/hawaii_gravity
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Gravity and magnetics
+---------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The tilt angle is a useful transformation of potential field data for boundary detection. It is...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_tilt_angle_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_tilt_angle.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/tilt_angle
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example uses the Hawaii gravity data to compute the radial average of its power spectrum.">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_radial_average_spectrum_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_radial_average_spectrum.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/radial_average_spectrum
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="If the direction of magnetization is known, you can reduce a measured total field magnetic anom...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_reduction_pole_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_reduction_pole.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/reduction_pole
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.gravmag` has many functions for forward modeling gravity and magnetic data. ...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_forward_modeling_sphere_gravity_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_forward_modeling_sphere_gravity.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/forward_modeling_sphere_gravity
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.gravmag` package has function for performing gravity corrections to obtain t...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_gravity_corrections_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_gravity_corrections.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/gravity_corrections
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.gravmag` has many functions for forward modeling gravity and magnetic data. ...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_forward_modeling_sphere_mag_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_forward_modeling_sphere_mag.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/forward_modeling_sphere_mag
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The equivalent layer is one of the best methods for griding and upward continuing gravity data ...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_eqlayer_transform_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_eqlayer_transform.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/eqlayer_transform
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Euler deconvolution with a moving window ----------------------------------------">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_euler_moving_window_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_euler_moving_window.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/euler_moving_window
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Module :mod:`fatiando.gravmag.imaging` has functions for imaging methods in potential fields. T...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_imaging_geninv_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_imaging_geninv.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/imaging_geninv
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The equivalent layer can be used to reduce magnetic data to the pole. One of the main advantage...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_eqlayer_mag_transform_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_eqlayer_mag_transform.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/eqlayer_mag_transform
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The usual approach to Euler deconvolution using a :ref:`moving window scheme &lt;gallery_euler_mw&gt;...">
+
+.. only:: html
+
+    .. figure:: /gallery/gravmag/images/thumb/sphx_glr_euler_expanding_window_thumb.png
+
+        :ref:`sphx_glr_gallery_gravmag_euler_expanding_window.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gravmag/euler_expanding_window
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Grid generation and manipulation
+--------------------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="You can create the (x, y, z) coordinate arrays for regular grids using :func:`fatiando.gridder....">
+
+.. only:: html
+
+    .. figure:: /gallery/gridder/images/thumb/sphx_glr_regular_grid_thumb.png
+
+        :ref:`sphx_glr_gallery_gridder_regular_grid.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gridder/regular_grid
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The function :func:`fatiando.gridder.profile` can be used to extract a profile of data from a m...">
+
+.. only:: html
+
+    .. figure:: /gallery/gridder/images/thumb/sphx_glr_profile_thumb.png
+
+        :ref:`sphx_glr_gallery_gridder_profile.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gridder/profile
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The :func:`fatiando.gridder.cut` function extracts points from spatially distributed  data that...">
+
+.. only:: html
+
+    .. figure:: /gallery/gridder/images/thumb/sphx_glr_cutting_thumb.png
+
+        :ref:`sphx_glr_gallery_gridder_cutting.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gridder/cutting
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="You can create the (x, y, z) coordinate arrays for a random scatter of points using :func:`fati...">
+
+.. only:: html
+
+    .. figure:: /gallery/gridder/images/thumb/sphx_glr_point_scatter_thumb.png
+
+        :ref:`sphx_glr_gallery_gridder_point_scatter.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gridder/point_scatter
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Sometimes it is useful to add some padding points to the edges of grids, for example during FFT...">
+
+.. only:: html
+
+    .. figure:: /gallery/gridder/images/thumb/sphx_glr_padding_thumb.png
+
+        :ref:`sphx_glr_gallery_gridder_padding.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gridder/padding
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The functions :func:`fatiando.gridder.interp` and :func:`fatiando.gridder.interp_at` offer conv...">
+
+.. only:: html
+
+    .. figure:: /gallery/gridder/images/thumb/sphx_glr_interpolate_thumb.png
+
+        :ref:`sphx_glr_gallery_gridder_interpolate.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/gridder/interpolate
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Seismology and seismics
+-----------------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The :mod:`fatiando.seismic` package defines classes to evaluate and sample wavelets. Here is an...">
+
+.. only:: html
+
+    .. figure:: /gallery/seismic/images/thumb/sphx_glr_wavelets_thumb.png
+
+        :ref:`sphx_glr_gallery_seismic_wavelets.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/seismic/wavelets
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The simplest way to get a seismogram (in time x offset) is through the convolutional model">
+
+.. only:: html
+
+    .. figure:: /gallery/seismic/images/thumb/sphx_glr_convolutional_model_thumb.png
+
+        :ref:`sphx_glr_gallery_seismic_convolutional_model.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/seismic/convolutional_model
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A very simplified way of playing around with tomography is through a straight-ray approximation...">
+
+.. only:: html
+
+    .. figure:: /gallery/seismic/images/thumb/sphx_glr_srtomo_regularized_thumb.png
+
+        :ref:`sphx_glr_gallery_seismic_srtomo_regularized.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/seismic/srtomo_regularized
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+Visualization
+-------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="One way to plot seismic data is using black and white wiggles. Function :func:`fatiando.vis.mpl...">
+
+.. only:: html
+
+    .. figure:: /gallery/vis/images/thumb/sphx_glr_seismic-wiggle_thumb.png
+
+        :ref:`sphx_glr_gallery_vis_seismic-wiggle.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /gallery/vis/seismic-wiggle
+.. raw:: html
+
+    <div style='clear:both'></div>
+
+
+
+.. container:: sphx-glr-footer
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Python source code: gallery_python.zip <//home/travis/build/fatiando/fatiando/doc/gallery/gallery_python.zip>`
+
+
+
+  .. container:: sphx-glr-download
+
+    :download:`Download all examples in Jupyter notebooks: gallery_jupyter.zip <//home/travis/build/fatiando/fatiando/doc/gallery/gallery_jupyter.zip>`
+
+.. rst-class:: sphx-glr-signature
+
+    `Generated by Sphinx-Gallery <https://sphinx-gallery.readthedocs.io>`_

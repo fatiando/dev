@@ -1,0 +1,8 @@
+:mod:`fatiando.mesher`.PrismMesh
+=======================================
+
+.. currentmodule:: fatiando.mesher
+
+.. autoclass:: PrismMesh
+    :members:
+    :inherited-members:
